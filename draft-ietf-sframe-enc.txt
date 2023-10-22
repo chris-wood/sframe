@@ -5,14 +5,14 @@
 Network Working Group                                           E. Omara
 Internet-Draft                                                     Apple
 Intended status: Standards Track                               J. Uberti
-Expires: 16 March 2024                                            Google
+Expires: 24 April 2024                                            Google
                                                               S. Murillo
                                                           CoSMo Software
                                                        R. L. Barnes, Ed.
                                                                    Cisco
                                                                Y. Fablet
                                                                    Apple
-                                                       13 September 2023
+                                                         22 October 2023
 
 
                          Secure Frame (SFrame)
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 March 2024.
+   This Internet-Draft will expire on 24 April 2024.
 
 Copyright Notice
 
