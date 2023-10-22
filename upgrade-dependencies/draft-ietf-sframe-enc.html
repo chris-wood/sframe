@@ -20,24 +20,24 @@ actual media.
 it is independent of RTP (thus compatible with non-RTP media transport) and can
 be applied to whole media frames in order to be more bandwidth efficient. 
     " name="description">
-<meta content="xml2rfc 3.18.0" name="generator">
+<meta content="xml2rfc 3.18.2" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-sframe-enc-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.18.0
-    Python 3.11.5
+  xml2rfc 3.18.2
+    Python 3.11.6
     ConfigArgParse 1.5.3
     google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.3
-    platformdirs 3.10.0
+    platformdirs 3.11.0
     pycountry 22.3.5
     PyYAML 6.0
     requests 2.31.0
     setuptools 67.7.2
     six 1.16.0
-    wcwidth 0.2.6
+    wcwidth 0.2.8
 -->
 <link href="draft-ietf-sframe-enc.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -660,7 +660,7 @@ sub, sup {
 }
 #toc nav li {
   line-height: 1.3em;
-  margin: 0.75em 0;
+  margin: 2px 0;
   padding-left: 1.2em;
   text-indent: -1.2em;
 }
@@ -753,7 +753,7 @@ hr.addr {
     z-index: 2;
     top: 0;
     right: 0;
-    padding: 0;
+    padding: 1px 0 0 0;
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
@@ -877,16 +877,13 @@ hr.addr {
     border-top: none;
     padding-top: 0;
   }
-  figure, pre {
+  figure, pre, .vcard {
     page-break-inside: avoid;
-  }
-  figure {
-    overflow: scroll;
   }
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
   }
-  h2+*, h3+*, h4+*, h5+*, h6+* {
+  :is(h2, h3, h4, h5, h6)+*, dd {
     page-break-before: avoid;
   }
   pre {
@@ -899,6 +896,9 @@ hr.addr {
   }
   td {
     border-top: 1px solid #ddd;
+  }
+  .toplink {
+    display: none;
   }
 }
 
@@ -1000,28 +1000,6 @@ address div.right {
   text-align: right;
 }
 
-/* Give the table caption label the same styling as the figcaption */
-
-@media print {
-  .toplink {
-    display: none;
-  }
-
-  /* avoid overwriting the top border line with the ToC header */
-  #toc {
-    padding-top: 1px;
-  }
-
-  /* Avoid page breaks inside dl and author address entries */
-  dd {
-    page-break-before: avoid;
-  }
-  .vcard {
-    page-break-inside: avoid;
-  }
-
-}
-
 /* Dark mode. */
 @media (prefers-color-scheme: dark) {
 :root {
@@ -1058,11 +1036,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SFrame</td>
-<td class="right">September 2023</td>
+<td class="right">October 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Omara, et al.</td>
-<td class="center">Expires 16 March 2024</td>
+<td class="center">Expires 24 April 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1075,12 +1053,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-sframe-enc-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-09-13" class="published">13 September 2023</time>
+<time datetime="2023-10-22" class="published">22 October 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-03-16">16 March 2024</time></dd>
+<dd class="expires"><time datetime="2024-04-24">24 April 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1154,7 +1132,7 @@ be applied to whole media frames in order to be more bandwidth efficient.<a href
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 March 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 24 April 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1271,16 +1249,19 @@ be applied to whole media frames in order to be more bandwidth efficient.<a href
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-no-per-sender-authenticatio" class="internal xref">No Per-Sender Authentication</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-no-header-confidentiality" class="internal xref">No Header Confidentiality</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-key-management-2" class="internal xref">Key Management</a></p>
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-no-per-sender-authenticatio" class="internal xref">No Per-Sender Authentication</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
-                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-authentication-tag-length" class="internal xref">Authentication tag length</a></p>
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-key-management-2" class="internal xref">Key Management</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.4">
-                <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="auto internal xref">7.4</a>.  <a href="#name-replay" class="internal xref">Replay</a></p>
+                <p id="section-toc.1-1.7.2.4.1"><a href="#section-7.4" class="auto internal xref">7.4</a>.  <a href="#name-authentication-tag-length" class="internal xref">Authentication tag length</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.5">
+                <p id="section-toc.1-1.7.2.5.1"><a href="#section-7.5" class="auto internal xref">7.5</a>.  <a href="#name-replay" class="internal xref">Replay</a></p>
 </li>
             </ul>
 </li>
@@ -1382,10 +1363,12 @@ needs to be able to access RTP metadata and RTCP feedback messages, which is not
 possible if all RTP/RTCP traffic is end-to-end encrypted.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">As such, two layers of encryptions and authentication are required:<a href="#section-1-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-1-3">
-<li id="section-1-3.1">Hop-by-hop (HBH) encryption of media, metadata, and feedback messages
-between the the endpoints and SFU<a href="#section-1-3.1" class="pilcrow">¶</a>
+<li id="section-1-3.1">
+          <p id="section-1-3.1.1">Hop-by-hop (HBH) encryption of media, metadata, and feedback messages
+between the the endpoints and SFU<a href="#section-1-3.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-1-3.2">End-to-end (E2E) encryption of media between the endpoints<a href="#section-1-3.2" class="pilcrow">¶</a>
+        <li id="section-1-3.2">
+          <p id="section-1-3.2.1">End-to-end (E2E) encryption of media between the endpoints<a href="#section-1-3.2.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
 <p id="section-1-4">The Secure Real-Time Protocol (SRTP) is already widely used for HBH encryption
@@ -1446,27 +1429,35 @@ other protocol.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-3-1">SFrame is designed to be a suitable E2EE protection scheme for conference call
 media in a broad range of scenarios, as outlined by the following goals:<a href="#section-3-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-3-2">
-<li id="section-3-2.1">Provide an secure E2EE mechanism for audio and video in conference calls
-that can be used with arbitrary SFU servers.<a href="#section-3-2.1" class="pilcrow">¶</a>
+<li id="section-3-2.1">
+          <p id="section-3-2.1.1">Provide an secure E2EE mechanism for audio and video in conference calls
+that can be used with arbitrary SFU servers.<a href="#section-3-2.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-3-2.2">Decouple media encryption from key management to allow SFrame to be used
-with an arbitrary key management system.<a href="#section-3-2.2" class="pilcrow">¶</a>
+        <li id="section-3-2.2">
+          <p id="section-3-2.2.1">Decouple media encryption from key management to allow SFrame to be used
+with an arbitrary key management system.<a href="#section-3-2.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-3-2.3">Minimize packet expansion to allow successful conferencing in as many
-network conditions as possible.<a href="#section-3-2.3" class="pilcrow">¶</a>
+        <li id="section-3-2.3">
+          <p id="section-3-2.3.1">Minimize packet expansion to allow successful conferencing in as many
+network conditions as possible.<a href="#section-3-2.3.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-3-2.4">Independence from the underlying transport, including use in non-RTP
-transports, e.g., WebTransport <span>[<a href="#I-D.ietf-webtrans-overview" class="cite xref">I-D.ietf-webtrans-overview</a>]</span>.<a href="#section-3-2.4" class="pilcrow">¶</a>
+        <li id="section-3-2.4">
+          <p id="section-3-2.4.1">Independence from the underlying transport, including use in non-RTP
+transports, e.g., WebTransport <span>[<a href="#I-D.ietf-webtrans-overview" class="cite xref">I-D.ietf-webtrans-overview</a>]</span>.<a href="#section-3-2.4.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-3-2.5">When used with RTP and its associated error resilience mechanisms, i.e., RTX
-and FEC, require no special handling for RTX and FEC packets.<a href="#section-3-2.5" class="pilcrow">¶</a>
+        <li id="section-3-2.5">
+          <p id="section-3-2.5.1">When used with RTP and its associated error resilience mechanisms, i.e., RTX
+and FEC, require no special handling for RTX and FEC packets.<a href="#section-3-2.5.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-3-2.6">Minimize the changes needed in SFU servers.<a href="#section-3-2.6" class="pilcrow">¶</a>
+        <li id="section-3-2.6">
+          <p id="section-3-2.6.1">Minimize the changes needed in SFU servers.<a href="#section-3-2.6.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-3-2.7">Minimize the changes needed in endpoints.<a href="#section-3-2.7" class="pilcrow">¶</a>
+        <li id="section-3-2.7">
+          <p id="section-3-2.7.1">Minimize the changes needed in endpoints.<a href="#section-3-2.7.1" class="pilcrow">¶</a></p>
 </li>
-        <li id="section-3-2.8">Work with the most popular audio and video codecs used in conferencing
-scenarios.<a href="#section-3-2.8" class="pilcrow">¶</a>
+        <li id="section-3-2.8">
+          <p id="section-3-2.8.1">Work with the most popular audio and video codecs used in conferencing
+scenarios.<a href="#section-3-2.8.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
 </section>
@@ -1673,10 +1664,10 @@ are determined by the AEAD algorithm in use.<a href="#section-4.2-2" class="pilc
               <path d="M 8,64 L 8,304" fill="none" stroke="black"></path>
               <path d="M 32,32 L 32,256" fill="none" stroke="black"></path>
               <path d="M 48,32 L 48,64" fill="none" stroke="black"></path>
-              <path d="M 80,32 L 80,64" fill="none" stroke="black"></path>
-              <path d="M 96,32 L 96,64" fill="none" stroke="black"></path>
-              <path d="M 136,32 L 136,64" fill="none" stroke="black"></path>
-              <path d="M 304,32 L 304,64" fill="none" stroke="black"></path>
+              <path d="M 88,32 L 88,64" fill="none" stroke="black"></path>
+              <path d="M 104,32 L 104,64" fill="none" stroke="black"></path>
+              <path d="M 144,32 L 144,64" fill="none" stroke="black"></path>
+              <path d="M 312,32 L 312,64" fill="none" stroke="black"></path>
               <path d="M 480,32 L 480,256" fill="none" stroke="black"></path>
               <path d="M 504,32 L 504,304" fill="none" stroke="black"></path>
               <path d="M 32,32 L 504,32" fill="none" stroke="black"></path>
@@ -1690,12 +1681,12 @@ are determined by the AEAD algorithm in use.<a href="#section-4.2-2" class="pilc
               <polygon class="arrowhead" points="32,224 20,218.4 20,229.6" fill="black" transform="rotate(0,24,224)"></polygon>
               <polygon class="arrowhead" points="32,64 20,58.4 20,69.6" fill="black" transform="rotate(0,24,64)"></polygon>
               <g class="text">
-                <text x="40" y="52">R</text>
-                <text x="64" y="52">LEN</text>
-                <text x="88" y="52">X</text>
-                <text x="116" y="52">KLEN</text>
-                <text x="208" y="52">Key</text>
-                <text x="236" y="52">ID</text>
+                <text x="40" y="52">K</text>
+                <text x="68" y="52">KLEN</text>
+                <text x="96" y="52">C</text>
+                <text x="124" y="52">CLEN</text>
+                <text x="216" y="52">Key</text>
+                <text x="244" y="52">ID</text>
                 <text x="392" y="52">Counter</text>
                 <text x="224" y="148">Encrypted</text>
                 <text x="284" y="148">Data</text>
@@ -1723,147 +1714,191 @@ appearing in the first packet and the authentication tag in the last packet.<a h
 <p id="section-4.3-1">The SFrame header specifies two values from which encryption parameters are
 derived:<a href="#section-4.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.3-2.1">A Key ID (KID) that determines which encryption key should be used<a href="#section-4.3-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.3-2.1">
+            <p id="section-4.3-2.1.1">A Key ID (KID) that determines which encryption key should be used<a href="#section-4.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.3-2.2">A counter (CTR) that is used to construct the IV for the encryption<a href="#section-4.3-2.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-4.3-2.2">
+            <p id="section-4.3-2.2.1">A counter (CTR) that is used to construct the IV for the encryption<a href="#section-4.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-4.3-3">Applications MUST ensure that each (KID, CTR) combination is used for exactly
 one encryption operation. A typical approach to achieving this gaurantee is
 outlined in <a href="#header-value-uniqueness" class="auto internal xref">Section 9.1</a>.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
-<p id="section-4.3-4">Both the counter and the key id are encoded as integers in network (big-endian)
-byte order, in a variable length format to decrease the overhead.  The length of
-each field is up to 8 bytes and is represented in 3 bits in the SFrame header:
-000 represents a length of 1, 001 a length of 2, etc.<a href="#section-4.3-4" class="pilcrow">¶</a></p>
-<p id="section-4.3-5">The first byte in the SFrame header has a fixed format and contains the header
-metadata:<a href="#section-4.3-5" class="pilcrow">¶</a></p>
-<span id="name-sframe-header-metadata"></span><figure id="figure-2">
-          <div id="section-4.3-6.1">
-            <div class="alignLeft art-svg artwork" id="section-4.3-6.1.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="96" width="144" viewBox="0 0 144 96" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-                <path d="M 8,48 L 8,80" fill="none" stroke="black"></path>
-                <path d="M 24,48 L 24,80" fill="none" stroke="black"></path>
-                <path d="M 72,48 L 72,80" fill="none" stroke="black"></path>
-                <path d="M 88,48 L 88,80" fill="none" stroke="black"></path>
-                <path d="M 136,48 L 136,80" fill="none" stroke="black"></path>
-                <path d="M 8,48 L 136,48" fill="none" stroke="black"></path>
-                <path d="M 8,80 L 136,80" fill="none" stroke="black"></path>
+<span id="name-sframe-header-2"></span><div id="fig-sframe-header">
+<figure id="figure-2">
+          <div id="section-4.3-4.1">
+            <div class="alignLeft art-svg artwork" id="section-4.3-4.1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="160" width="352" viewBox="0 0 352 160" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                <path d="M 8,112 L 8,144" fill="none" stroke="black"></path>
+                <path d="M 24,112 L 24,144" fill="none" stroke="black"></path>
+                <path d="M 72,112 L 72,144" fill="none" stroke="black"></path>
+                <path d="M 88,112 L 88,144" fill="none" stroke="black"></path>
+                <path d="M 136,112 L 136,144" fill="none" stroke="black"></path>
+                <path d="M 240,112 L 240,144" fill="none" stroke="black"></path>
+                <path d="M 344,112 L 344,144" fill="none" stroke="black"></path>
+                <path d="M 24,64 L 56,64" fill="none" stroke="black"></path>
+                <path d="M 88,64 L 120,64" fill="none" stroke="black"></path>
+                <path d="M 8,112 L 344,112" fill="none" stroke="black"></path>
+                <path d="M 8,144 L 344,144" fill="none" stroke="black"></path>
+                <path d="M 24,64 C 15.16936,64 8,71.16936 8,80" fill="none" stroke="black"></path>
+                <path d="M 56,64 C 64.83064,64 72,56.83064 72,48" fill="none" stroke="black"></path>
+                <path d="M 88,64 C 79.16936,64 72,56.83064 72,48" fill="none" stroke="black"></path>
+                <path d="M 120,64 C 128.83064,64 136,71.16936 136,80" fill="none" stroke="black"></path>
                 <g class="text">
-                  <text x="16" y="36">0</text>
-                  <text x="32" y="36">1</text>
-                  <text x="48" y="36">2</text>
-                  <text x="64" y="36">3</text>
-                  <text x="80" y="36">4</text>
-                  <text x="96" y="36">5</text>
-                  <text x="112" y="36">6</text>
-                  <text x="128" y="36">7</text>
-                  <text x="16" y="68">R</text>
-                  <text x="48" y="68">LEN</text>
-                  <text x="80" y="68">X</text>
-                  <text x="112" y="68">K</text>
+                  <text x="52" y="36">Config</text>
+                  <text x="100" y="36">Byte</text>
+                  <text x="16" y="100">0</text>
+                  <text x="32" y="100">1</text>
+                  <text x="48" y="100">2</text>
+                  <text x="64" y="100">3</text>
+                  <text x="80" y="100">4</text>
+                  <text x="96" y="100">5</text>
+                  <text x="112" y="100">6</text>
+                  <text x="128" y="100">7</text>
+                  <text x="16" y="132">X</text>
+                  <text x="48" y="132">K</text>
+                  <text x="80" y="132">Y</text>
+                  <text x="112" y="132">C</text>
+                  <text x="188" y="132">KID...</text>
+                  <text x="292" y="132">CTR...</text>
                 </g>
-              </svg><a href="#section-4.3-6.1.1" class="pilcrow">¶</a>
+              </svg><a href="#section-4.3-4.1.1" class="pilcrow">¶</a>
 </div>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
-<a href="#name-sframe-header-metadata" class="selfRef">SFrame header metadata</a>
+<a href="#name-sframe-header-2" class="selfRef">SFrame header</a>
           </figcaption></figure>
-<span class="break"></span><dl class="dlParallel" id="section-4.3-7">
-          <dt id="section-4.3-7.1">Reserved (R, 1 bit):</dt>
-          <dd style="margin-left: 1.5em" id="section-4.3-7.2">
-            <p id="section-4.3-7.2.1">This field MUST be set to zero on sending, and MUST be ignored by receivers.<a href="#section-4.3-7.2.1" class="pilcrow">¶</a></p>
+</div>
+<p id="section-4.3-5">The SFrame Header has the overall structure shown in <a href="#fig-sframe-header" class="auto internal xref">Figure 2</a>.  The
+first byte is a "config byte", with the following fields:<a href="#section-4.3-5" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-4.3-6">
+          <dt id="section-4.3-6.1">Extended Key Id Flag (X, 1 bit):</dt>
+          <dd style="margin-left: 1.5em" id="section-4.3-6.2">
+            <p id="section-4.3-6.2.1">Indicates if the K field contains the key id or the key id length.<a href="#section-4.3-6.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-4.3-7.3">Counter Length (LEN, 3 bits):</dt>
-          <dd style="margin-left: 1.5em" id="section-4.3-7.4">
-            <p id="section-4.3-7.4.1">This field indicates the length of the CTR field in bytes, minus one (the
-range of possible values is thus 1-8).<a href="#section-4.3-7.4.1" class="pilcrow">¶</a></p>
+<dt id="section-4.3-6.3">Key or Key Length (K, 3 bits):</dt>
+          <dd style="margin-left: 1.5em" id="section-4.3-6.4">
+            <p id="section-4.3-6.4.1">This field contains the key id (KID) if the X flag is set to 0, or the key id
+length if set to 1.<a href="#section-4.3-6.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-4.3-7.5">Extended Key Id Flag (X, 1 bit):</dt>
-          <dd style="margin-left: 1.5em" id="section-4.3-7.6">
-            <p id="section-4.3-7.6.1">Indicates if the key field contains the key id or the key length.<a href="#section-4.3-7.6.1" class="pilcrow">¶</a></p>
+<dt id="section-4.3-6.5">Extended Counter Flag (Y, 1 bit):</dt>
+          <dd style="margin-left: 1.5em" id="section-4.3-6.6">
+            <p id="section-4.3-6.6.1">Indicates if the C field contains the counter or the counter length.<a href="#section-4.3-6.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-4.3-7.7">Key or Key Length (K, 3 bits):</dt>
-          <dd style="margin-left: 1.5em" id="section-4.3-7.8">
-            <p id="section-4.3-7.8.1">This field contains the key id (KID) if the X flag is set to 0, or the key
-length (KLEN) if set to 1.<a href="#section-4.3-7.8.1" class="pilcrow">¶</a></p>
+<dt id="section-4.3-6.7">Counter or Counter Length (C, 3 bits):</dt>
+          <dd style="margin-left: 1.5em" id="section-4.3-6.8">
+            <p id="section-4.3-6.8.1">This field contains the counter (CTR) if the Y flag is set to 0, or the counter
+length if set to 1.<a href="#section-4.3-6.8.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
-<p id="section-4.3-8">If X flag is 0, then the KID is in the range of 0-7 and the counter (CTR) is
-found in the next LEN bytes:<a href="#section-4.3-8" class="pilcrow">¶</a></p>
-<span id="name-sframe-header-with-short-ki"></span><figure id="figure-3">
+<p id="section-4.3-7">The Key ID and Counter fields are encoded as compact unsigned integers in
+network (big-endian) byte order.  If the value of one of these fields is in the
+range 0-7, then the value is carried in the corresponding bits of the config
+byte (K or C) and the corresponding flag (X or Y) is set to zero.  Otherwise,
+the value MUST be encoded with the minimum number of bytes required and
+appended after the configuration byte, with the Key ID first and Counter second.
+The header field (K or C) is set to the number of bytes in the encoded value,
+minus one.  The value 000 represents a length of 1, 001 a length of 2, etc.
+This allows a 3-bit length field to represent the value lengths 1-8.<a href="#section-4.3-7" class="pilcrow">¶</a></p>
+<p id="section-4.3-8">The SFrame header can thus take one of the four forms shown in
+<a href="#fig-sframe-header-cases" class="auto internal xref">Figure 3</a>, depending on which of the X and Y flags are set.<a href="#section-4.3-8" class="pilcrow">¶</a></p>
+<span id="name-forms-of-encoded-sframe-hea"></span><div id="fig-sframe-header-cases">
+<figure id="figure-3">
           <div id="section-4.3-9.1">
             <div class="alignLeft art-svg artwork" id="section-4.3-9.1.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="96" width="416" viewBox="0 0 416 96" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="336" width="544" viewBox="0 0 544 336" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,48 L 8,80" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 8,160" fill="none" stroke="black"></path>
+                <path d="M 8,208 L 8,240" fill="none" stroke="black"></path>
+                <path d="M 8,288 L 8,320" fill="none" stroke="black"></path>
                 <path d="M 24,48 L 24,80" fill="none" stroke="black"></path>
+                <path d="M 24,128 L 24,160" fill="none" stroke="black"></path>
+                <path d="M 24,208 L 24,240" fill="none" stroke="black"></path>
+                <path d="M 24,288 L 24,320" fill="none" stroke="black"></path>
                 <path d="M 72,48 L 72,80" fill="none" stroke="black"></path>
+                <path d="M 72,128 L 72,160" fill="none" stroke="black"></path>
+                <path d="M 72,192 L 72,240" fill="none" stroke="black"></path>
+                <path d="M 72,272 L 72,320" fill="none" stroke="black"></path>
                 <path d="M 88,48 L 88,80" fill="none" stroke="black"></path>
+                <path d="M 88,128 L 88,160" fill="none" stroke="black"></path>
+                <path d="M 88,208 L 88,240" fill="none" stroke="black"></path>
+                <path d="M 88,288 L 88,320" fill="none" stroke="black"></path>
                 <path d="M 136,48 L 136,80" fill="none" stroke="black"></path>
-                <path d="M 408,48 L 408,80" fill="none" stroke="black"></path>
-                <path d="M 8,48 L 408,48" fill="none" stroke="black"></path>
-                <path d="M 8,80 L 408,80" fill="none" stroke="black"></path>
+                <path d="M 136,128 L 136,160" fill="none" stroke="black"></path>
+                <path d="M 136,208 L 136,240" fill="none" stroke="black"></path>
+                <path d="M 136,288 L 136,320" fill="none" stroke="black"></path>
+                <path d="M 336,128 L 336,160" fill="none" stroke="black"></path>
+                <path d="M 336,208 L 336,240" fill="none" stroke="black"></path>
+                <path d="M 336,288 L 336,320" fill="none" stroke="black"></path>
+                <path d="M 536,288 L 536,320" fill="none" stroke="black"></path>
+                <path d="M 8,48 L 136,48" fill="none" stroke="black"></path>
+                <path d="M 8,80 L 136,80" fill="none" stroke="black"></path>
+                <path d="M 8,128 L 336,128" fill="none" stroke="black"></path>
+                <path d="M 8,160 L 336,160" fill="none" stroke="black"></path>
+                <path d="M 8,208 L 336,208" fill="none" stroke="black"></path>
+                <path d="M 8,240 L 336,240" fill="none" stroke="black"></path>
+                <path d="M 8,288 L 536,288" fill="none" stroke="black"></path>
+                <path d="M 8,320 L 536,320" fill="none" stroke="black"></path>
                 <g class="text">
-                  <text x="16" y="36">0</text>
-                  <text x="32" y="36">1</text>
-                  <text x="48" y="36">2</text>
-                  <text x="64" y="36">3</text>
-                  <text x="80" y="36">4</text>
-                  <text x="96" y="36">5</text>
-                  <text x="112" y="36">6</text>
-                  <text x="128" y="36">7</text>
-                  <text x="16" y="68">R</text>
-                  <text x="40" y="68">LEN</text>
+                  <text x="16" y="36">KID</text>
+                  <text x="40" y="36">&lt;</text>
+                  <text x="60" y="36">8,</text>
+                  <text x="88" y="36">CTR</text>
+                  <text x="112" y="36">&lt;</text>
+                  <text x="132" y="36">8:</text>
+                  <text x="16" y="68">0</text>
+                  <text x="48" y="68">KID</text>
                   <text x="80" y="68">0</text>
-                  <text x="112" y="68">KID</text>
-                  <text x="196" y="68">CTR...</text>
-                  <text x="276" y="68">(length=LEN)</text>
+                  <text x="112" y="68">CTR</text>
+                  <text x="16" y="116">KID</text>
+                  <text x="40" y="116">&lt;</text>
+                  <text x="60" y="116">8,</text>
+                  <text x="88" y="116">CTR</text>
+                  <text x="116" y="116">&gt;=</text>
+                  <text x="140" y="116">8:</text>
+                  <text x="16" y="148">0</text>
+                  <text x="48" y="148">KID</text>
+                  <text x="80" y="148">1</text>
+                  <text x="108" y="148">CLEN</text>
+                  <text x="180" y="148">CTR...</text>
+                  <text x="264" y="148">(length=CLEN)</text>
+                  <text x="16" y="196">KID</text>
+                  <text x="44" y="196">&gt;=</text>
+                  <text x="64" y="196">8</text>
+                  <text x="96" y="196">CTR</text>
+                  <text x="120" y="196">&lt;</text>
+                  <text x="140" y="196">8:</text>
+                  <text x="16" y="228">1</text>
+                  <text x="44" y="228">KLEN</text>
+                  <text x="80" y="228">0</text>
+                  <text x="112" y="228">CTR</text>
+                  <text x="180" y="228">KID...</text>
+                  <text x="264" y="228">(length=KLEN)</text>
+                  <text x="16" y="276">KID</text>
+                  <text x="44" y="276">&gt;=</text>
+                  <text x="64" y="276">8</text>
+                  <text x="96" y="276">CTR</text>
+                  <text x="124" y="276">&gt;=</text>
+                  <text x="148" y="276">8:</text>
+                  <text x="16" y="308">1</text>
+                  <text x="44" y="308">KLEN</text>
+                  <text x="80" y="308">1</text>
+                  <text x="108" y="308">CLEN</text>
+                  <text x="180" y="308">KID...</text>
+                  <text x="264" y="308">(length=KLEN)</text>
+                  <text x="380" y="308">CTR...</text>
+                  <text x="464" y="308">(length=CLEN)</text>
                 </g>
               </svg><a href="#section-4.3-9.1.1" class="pilcrow">¶</a>
 </div>
 </div>
 <figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
-<a href="#name-sframe-header-with-short-ki" class="selfRef">SFrame header with short KID</a>
+<a href="#name-forms-of-encoded-sframe-hea" class="selfRef">Forms of Encoded SFrame Header</a>
           </figcaption></figure>
-<p id="section-4.3-10">If X flag is 1 then KLEN is the length of the key (KID) in bytes, minus one
-(the range of possible lengths is thus 1-8). The KID is encoded in
-the KLEN bytes following the metadata byte, and the counter (CTR) is encoded
-in the next LEN bytes:<a href="#section-4.3-10" class="pilcrow">¶</a></p>
-<div id="section-4.3-11">
-          <div class="alignLeft art-svg artwork" id="section-4.3-11.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="96" width="592" viewBox="0 0 592 96" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-              <path d="M 8,48 L 8,80" fill="none" stroke="black"></path>
-              <path d="M 24,48 L 24,80" fill="none" stroke="black"></path>
-              <path d="M 72,48 L 72,80" fill="none" stroke="black"></path>
-              <path d="M 88,48 L 88,80" fill="none" stroke="black"></path>
-              <path d="M 136,48 L 136,80" fill="none" stroke="black"></path>
-              <path d="M 360,48 L 360,80" fill="none" stroke="black"></path>
-              <path d="M 584,48 L 584,80" fill="none" stroke="black"></path>
-              <path d="M 8,48 L 584,48" fill="none" stroke="black"></path>
-              <path d="M 8,80 L 584,80" fill="none" stroke="black"></path>
-              <g class="text">
-                <text x="16" y="36">0</text>
-                <text x="32" y="36">1</text>
-                <text x="48" y="36">2</text>
-                <text x="64" y="36">3</text>
-                <text x="80" y="36">4</text>
-                <text x="96" y="36">5</text>
-                <text x="112" y="36">6</text>
-                <text x="128" y="36">7</text>
-                <text x="16" y="68">R</text>
-                <text x="40" y="68">LEN</text>
-                <text x="80" y="68">1</text>
-                <text x="108" y="68">KLEN</text>
-                <text x="188" y="68">KID...</text>
-                <text x="272" y="68">(length=KLEN)</text>
-                <text x="420" y="68">CTR...</text>
-                <text x="500" y="68">(length=LEN)</text>
-              </g>
-            </svg><a href="#section-4.3-11.1" class="pilcrow">¶</a>
-</div>
 </div>
 </section>
 </div>
@@ -1877,20 +1912,20 @@ the cipher suite in use (see <a href="#cipher-suites" class="auto internal xref"
 aspects of the AEAD algorithm below:<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4-2.1">
-            <code>AEAD.Encrypt</code> and <code>AEAD.Decrypt</code> - The encryption and decryption functions
+            <p id="section-4.4-2.1.1"><code>AEAD.Encrypt</code> and <code>AEAD.Decrypt</code> - The encryption and decryption functions
 for the AEAD.  We follow the convention of RFC 5116 <span>[<a href="#RFC5116" class="cite xref">RFC5116</a>]</span> and consider
 the authentication tag part of the ciphertext produced by <code>AEAD.Encrypt</code> (as
-opposed to a separate field as in SRTP <span>[<a href="#RFC3711" class="cite xref">RFC3711</a>]</span>).<a href="#section-4.4-2.1" class="pilcrow">¶</a>
+opposed to a separate field as in SRTP <span>[<a href="#RFC3711" class="cite xref">RFC3711</a>]</span>).<a href="#section-4.4-2.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.4-2.2">
-            <code>AEAD.Nk</code> - The size in bytes of a key for the encryption algorithm<a href="#section-4.4-2.2" class="pilcrow">¶</a>
+            <p id="section-4.4-2.2.1"><code>AEAD.Nk</code> - The size in bytes of a key for the encryption algorithm<a href="#section-4.4-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.4-2.3">
-            <code>AEAD.Nn</code> - The size in bytes of a nonce for the encryption algorithm<a href="#section-4.4-2.3" class="pilcrow">¶</a>
+            <p id="section-4.4-2.3.1"><code>AEAD.Nn</code> - The size in bytes of a nonce for the encryption algorithm<a href="#section-4.4-2.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-4.4-2.4">
-            <code>AEAD.Nt</code> - The overhead in bytes of the encryption algorithm (typically the
-size of a "tag" that is added to the plaintext)<a href="#section-4.4-2.4" class="pilcrow">¶</a>
+            <p id="section-4.4-2.4.1"><code>AEAD.Nt</code> - The overhead in bytes of the encryption algorithm (typically the
+size of a "tag" that is added to the plaintext)<a href="#section-4.4-2.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <div id="key-selection">
@@ -1939,14 +1974,18 @@ using HKDF <span>[<a href="#RFC5869" class="cite xref">RFC5869</a>]</span> as fo
 <pre>
 def derive_key_salt(KID, base_key):
   sframe_secret = HKDF-Extract("", base_key)
-  sframe_key = HKDF-Expand(sframe_secret, "SFrame 1.0 Secret key " + KID, AEAD.Nk)
-  sframe_salt = HKDF-Expand(sframe_secret, "SFrame 1.0 Secret salt " + KID, AEAD.Nn)
+  info = "SFrame 1.0 Secret key " + KID + cipher_suite
+  sframe_key = HKDF-Expand(sframe_secret, info, AEAD.Nk)
+  sframe_salt = HKDF-Expand(sframe_secret, info, AEAD.Nn)
   return sframe_key, sframe_salt
 </pre><a href="#section-4.4.2-2" class="pilcrow">¶</a>
 </div>
-<p id="section-4.4.2-3">In the derivation of <code>sframe_secret</code>, the <code>+</code> operator represents concatenation
-of byte strings and the KID value is encoded as an 8-byte big-endian integer
-(not the compressed form used in the SFrame header).<a href="#section-4.4.2-3" class="pilcrow">¶</a></p>
+<p id="section-4.4.2-3">In the derivation of <code>sframe_secret</code>:
+* The <code>+</code> operator represents concatenation of byte strings.
+* The KID value is encoded as an 8-byte big-endian integer, not the compressed
+  form used in the SFrame header.
+* The <code>cipher_suite</code> value is a 2-byte big-endian integer representing the
+  cipher suite in use (see <a href="#sframe-cipher-suites" class="auto internal xref">Section 8.1</a>).<a href="#section-4.4.2-3" class="pilcrow">¶</a></p>
 <p id="section-4.4.2-4">The hash function used for HKDF is determined by the cipher suite in use.<a href="#section-4.4.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2094,10 +2133,12 @@ once a key with that KID is received.<a href="#section-4.4.4-4" class="pilcrow">
 <p id="section-4.5-1">Each SFrame session uses a single cipher suite that specifies the following
 primitives:<a href="#section-4.5-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.5-2.1">A hash function used for key derivation<a href="#section-4.5-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-4.5-2.1">
+            <p id="section-4.5-2.1.1">A hash function used for key derivation<a href="#section-4.5-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.5-2.2">An AEAD encryption algorithm <span>[<a href="#RFC5116" class="cite xref">RFC5116</a>]</span> used for frame encryption, optionally
-with a truncated authentication tag<a href="#section-4.5-2.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-4.5-2.2">
+            <p id="section-4.5-2.2.1">An AEAD encryption algorithm <span>[<a href="#RFC5116" class="cite xref">RFC5116</a>]</span> used for frame encryption, optionally
+with a truncated authentication tag<a href="#section-4.5-2.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-4.5-3">This document defines the following cipher suites, with the constants defined in
@@ -2123,7 +2164,7 @@ with a truncated authentication tag<a href="#section-4.5-2.2" class="pilcrow">¶
                 <code>AES_128_CTR_HMAC_SHA256_80</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">32</td>
-              <td class="text-left" rowspan="1" colspan="1">16</td>
+              <td class="text-left" rowspan="1" colspan="1">48</td>
               <td class="text-left" rowspan="1" colspan="1">12</td>
               <td class="text-left" rowspan="1" colspan="1">10</td>
             </tr>
@@ -2132,7 +2173,7 @@ with a truncated authentication tag<a href="#section-4.5-2.2" class="pilcrow">¶
                 <code>AES_128_CTR_HMAC_SHA256_64</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">32</td>
-              <td class="text-left" rowspan="1" colspan="1">16</td>
+              <td class="text-left" rowspan="1" colspan="1">48</td>
               <td class="text-left" rowspan="1" colspan="1">12</td>
               <td class="text-left" rowspan="1" colspan="1">8</td>
             </tr>
@@ -2141,7 +2182,7 @@ with a truncated authentication tag<a href="#section-4.5-2.2" class="pilcrow">¶
                 <code>AES_128_CTR_HMAC_SHA256_32</code>
 </td>
               <td class="text-left" rowspan="1" colspan="1">32</td>
-              <td class="text-left" rowspan="1" colspan="1">16</td>
+              <td class="text-left" rowspan="1" colspan="1">48</td>
               <td class="text-left" rowspan="1" colspan="1">12</td>
               <td class="text-left" rowspan="1" colspan="1">4</td>
             </tr>
@@ -2185,18 +2226,16 @@ and another cipher suite with thirty-two-bit tags for audio frames.<a href="#sec
 using the authenticated counter mode of AES together with HMAC for
 authentication.  We use an encrypt-then-MAC approach, as in SRTP <span>[<a href="#RFC3711" class="cite xref">RFC3711</a>]</span>.<a href="#section-4.5.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.5.1-2">Before encryption or decryption, encryption and authentication subkeys are
-derived from the single AEAD key using HKDF.  The subkeys are derived as
-follows, where <code>Nk</code> represents the key size for the AES block cipher in use,
-<code>Nh</code> represents the output size of the hash function, and <code>Nt</code> represents the
-size of a tag for the cipher in bytes (as in <a href="#iana-cipher-suites" class="auto internal xref">Table 2</a>):<a href="#section-4.5.1-2" class="pilcrow">¶</a></p>
+derived from the single AEAD key.  The overall length of the AEAD key is <code>Nka +
+Nh</code>, where <code>Nka</code> represents the key size for the AES block cipher in use and <code>Nh</code>
+represents the output size of the hash function  (as in <a href="#iana-cipher-suites" class="auto internal xref">Table 2</a>).
+The encryption subkey comprises the first <code>Nka</code> bytes and the authentication
+subkey comprises the remaining <code>Nh</code> bytes.<a href="#section-4.5.1-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4.5.1-3">
 <pre>
 def derive_subkeys(sframe_key):
-  tag_len = encode_big_endian(Nt, 8)
-  aead_label = "SFrame 1.0 AES CTR AEAD " + tag_len
-  aead_secret = HKDF-Extract(aead_label, sframe_key)
-  enc_key = HKDF-Expand(aead_secret, "enc", Nk)
-  auth_key = HKDF-Expand(aead_secret, "auth", Nh)
+  enc_key = sframe_key[..Nka]
+  auth_key = sframe_key[Nka..]
   return enc_key, auth_key
 </pre><a href="#section-4.5.1-3" class="pilcrow">¶</a>
 </div>
@@ -2215,7 +2254,8 @@ def compute_tag(auth_key, nonce, aad, ct):
 
 def AEAD.Encrypt(key, nonce, aad, pt):
   enc_key, auth_key = derive_subkeys(key)
-  ct = AES-CTR.Encrypt(enc_key, nonce, pt)
+  iv = nonce + 0x00000000 # append four zero bytes
+  ct = AES-CTR.Encrypt(enc_key, iv, pt)
   tag = compute_tag(auth_key, nonce, aad, ct)
   return ct + tag
 
@@ -2227,7 +2267,8 @@ def AEAD.Decrypt(key, nonce, aad, ct):
   if !constant_time_equal(tag, candidate_tag):
     raise Exception("Authentication Failure")
 
-  return AES-CTR.Decrypt(enc_key, nonce, inner_ct)
+  iv = nonce + 0x00000000 # append four zero bytes
+  return AES-CTR.Decrypt(enc_key, iv, inner_ct)
 </pre><a href="#section-4.5.1-5" class="pilcrow">¶</a>
 </div>
 </section>
@@ -2245,9 +2286,11 @@ def AEAD.Decrypt(key, nonce, aad, ct):
 rotate the keys used for SFrame encryption. The key management
 framework provides the following functions:<a href="#section-5-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5-2.1">Provisioning KID / <code>base_key</code> mappings to participating clients<a href="#section-5-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5-2.1">
+          <p id="section-5-2.1.1">Provisioning KID / <code>base_key</code> mappings to participating clients<a href="#section-5-2.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-2.2">Updating the above data as clients join or leave<a href="#section-5-2.2" class="pilcrow">¶</a>
+        <li class="normal" id="section-5-2.2">
+          <p id="section-5-2.2.1">Updating the above data as clients join or leave<a href="#section-5-2.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-5-3">It is the responsibility of the application to provide the key management
@@ -2621,45 +2664,59 @@ arrived and was decrypted.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
       <h2 id="name-security-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<div id="no-per-sender-authentication">
+<div id="no-header-confidentiality">
 <section id="section-7.1">
-        <h3 id="name-no-per-sender-authenticatio">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-no-per-sender-authenticatio" class="section-name selfRef">No Per-Sender Authentication</a>
+        <h3 id="name-no-header-confidentiality">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-no-header-confidentiality" class="section-name selfRef">No Header Confidentiality</a>
         </h3>
-<p id="section-7.1-1">SFrame does not provide per-sender authentication of media data.  Any sender in
+<p id="section-7.1-1">SFrame provides integrity protection to the SFrame Header (the key ID and
+counter values), but does not provide confidentiality protection.  Parties that
+can observe the SFrame header may learn, for example, which parties are sending
+SFrame payloads (from KID values) and at what rates (from CTR values).  In cases
+where SFrame is used for end-to-end security on top of hop-by-hop protections
+(e.g., running over SRTP as described in <a href="#sframe-over-rtp" class="auto internal xref">Appendix C.5</a>), the hop-by-hop security
+mechanisms provide confidentiality protection of the SFrame header between hops.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="no-per-sender-authentication">
+<section id="section-7.2">
+        <h3 id="name-no-per-sender-authenticatio">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-no-per-sender-authenticatio" class="section-name selfRef">No Per-Sender Authentication</a>
+        </h3>
+<p id="section-7.2-1">SFrame does not provide per-sender authentication of media data.  Any sender in
 a session can send media that will be associated with any other sender.  This is
 because SFrame uses symmetric encryption to protect media data, so that any
-receiver also has the keys required to encrypt packets for the sender.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+receiver also has the keys required to encrypt packets for the sender.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="key-management-1">
-<section id="section-7.2">
+<section id="section-7.3">
         <h3 id="name-key-management-2">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-key-management-2" class="section-name selfRef">Key Management</a>
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-key-management-2" class="section-name selfRef">Key Management</a>
         </h3>
-<p id="section-7.2-1">Key exchange mechanism is out of scope of this document, however every client
+<p id="section-7.3-1">Key exchange mechanism is out of scope of this document, however every client
 SHOULD change their keys when new clients joins or leaves the call for "Forward
-Secrecy" and "Post Compromise Security".<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+Secrecy" and "Post Compromise Security".<a href="#section-7.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authentication-tag-length">
-<section id="section-7.3">
+<section id="section-7.4">
         <h3 id="name-authentication-tag-length">
-<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-authentication-tag-length" class="section-name selfRef">Authentication tag length</a>
+<a href="#section-7.4" class="section-number selfRef">7.4. </a><a href="#name-authentication-tag-length" class="section-name selfRef">Authentication tag length</a>
         </h3>
-<p id="section-7.3-1">The cipher suites defined in this draft use short authentication tags for
+<p id="section-7.4-1">The cipher suites defined in this draft use short authentication tags for
 encryption, however it can easily support other ciphers with full authentication
-tag if the short ones are proved insecure.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+tag if the short ones are proved insecure.<a href="#section-7.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="replay">
-<section id="section-7.4">
+<section id="section-7.5">
         <h3 id="name-replay">
-<a href="#section-7.4" class="section-number selfRef">7.4. </a><a href="#name-replay" class="section-name selfRef">Replay</a>
+<a href="#section-7.5" class="section-number selfRef">7.5. </a><a href="#name-replay" class="section-name selfRef">Replay</a>
         </h3>
-<p id="section-7.4-1">The handling of replay is out of the scope of this document. However, senders
+<p id="section-7.5-1">The handling of replay is out of the scope of this document. However, senders
 MUST reject requests to encrypt multiple times with the same key and nonce,
-since several AEAD algorithms fail badly in such cases (see, e.g., <span><a href="https://rfc-editor.org/rfc/rfc5116#section-5.1.1" class="relref">Section 5.1.1</a> of [<a href="#RFC5116" class="cite xref">RFC5116</a>]</span>).<a href="#section-7.4-1" class="pilcrow">¶</a></p>
+since several AEAD algorithms fail badly in such cases (see, e.g., <span><a href="https://rfc-editor.org/rfc/rfc5116#section-5.1.1" class="relref">Section 5.1.1</a> of [<a href="#RFC5116" class="cite xref">RFC5116</a>]</span>).<a href="#section-7.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2671,7 +2728,8 @@ since several AEAD algorithms fail badly in such cases (see, e.g., <span><a href
       </h2>
 <p id="section-8-1">This document requests the creation of the following new IANA registries:<a href="#section-8-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-8-2.1">SFrame Cipher Suites (<a href="#sframe-cipher-suites" class="auto internal xref">Section 8.1</a>)<a href="#section-8-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-8-2.1">
+          <p id="section-8-2.1.1">SFrame Cipher Suites (<a href="#sframe-cipher-suites" class="auto internal xref">Section 8.1</a>)<a href="#section-8-2.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-8-3">This registries should be under a heading of "SFrame",
@@ -2688,11 +2746,14 @@ this document<a href="#section-8-4" class="pilcrow">¶</a></p>
 suites are in the range 0x0000 to 0xFFFF.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
 <p id="section-8.1-2">Template:<a href="#section-8.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-8.1-3.1">Value: The numeric value of the cipher suite<a href="#section-8.1-3.1" class="pilcrow">¶</a>
+<li class="normal" id="section-8.1-3.1">
+            <p id="section-8.1-3.1.1">Value: The numeric value of the cipher suite<a href="#section-8.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-8.1-3.2">Name: The name of the cipher suite<a href="#section-8.1-3.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-8.1-3.2">
+            <p id="section-8.1-3.2.1">Name: The name of the cipher suite<a href="#section-8.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-8.1-3.3">Reference: The document where this wire format is defined<a href="#section-8.1-3.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-8.1-3.3">
+            <p id="section-8.1-3.3.1">Reference: The document where this wire format is defined<a href="#section-8.1-3.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-8.1-4">Initial contents:<a href="#section-8.1-4" class="pilcrow">¶</a></p>
@@ -2743,6 +2804,11 @@ suites are in the range 0x0000 to 0xFFFF.<a href="#section-8.1-1" class="pilcrow
               <td class="text-left" rowspan="1" colspan="1">
                 <code>AES_256_GCM_SHA512_128</code>
 </td>
+              <td class="text-left" rowspan="1" colspan="1">RFC XXXX</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">0xF000 - 0xFFFF</td>
+              <td class="text-left" rowspan="1" colspan="1">Reserved for private use</td>
               <td class="text-left" rowspan="1" colspan="1">RFC XXXX</td>
             </tr>
           </tbody>
@@ -2806,7 +2872,7 @@ sender are exposed.<a href="#section-9.2-3" class="pilcrow">¶</a></p>
         </h3>
 <p id="section-9.3-1">It is the responsibility of the application to handle anti-replay. Replay by network
 attackers is assumed to be prevented by network-layer facilities (e.g., TLS, SRTP).
-As mentioned in <a href="#replay" class="auto internal xref">Section 7.4</a>, senders MUST reject requests to encrypt multiple times
+As mentioned in <a href="#replay" class="auto internal xref">Section 7.5</a>, senders MUST reject requests to encrypt multiple times
 with the same key and nonce.<a href="#section-9.3-1" class="pilcrow">¶</a></p>
 <p id="section-9.3-2">It is not mandatory to implement anti-replay on the receiver side. Receivers MAY
 apply time or counter based anti-replay mitigations.<a href="#section-9.3-2" class="pilcrow">¶</a></p>
@@ -2832,6 +2898,7 @@ is useful and/or needed.<a href="#section-9.4-2" class="pilcrow">¶</a></p>
       <h2 id="name-references">
 <a href="#section-10" class="section-number selfRef">10. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
+<div id="sec-normative-references">
 <section id="section-10.1">
         <h3 id="name-normative-references">
 <a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
@@ -2859,6 +2926,8 @@ is useful and/or needed.<a href="#section-9.4-2" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 </dl>
 </section>
+</div>
+<div id="sec-informative-references">
 <section id="section-10.2">
         <h3 id="name-informative-references">
 <a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
@@ -2914,6 +2983,7 @@ is useful and/or needed.<a href="#section-9.4-2" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 </dl>
 </section>
+</div>
 </section>
 <div id="acknowledgements">
 <section id="appendix-A">
@@ -2944,24 +3014,24 @@ context to be used for sending also tracks the next CTR value to be used.<a href
 <p id="appendix-B-4">The primary operations on an SFrame context are as follows:<a href="#appendix-B-4" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-5.1">
-          <strong>Create an SFrame context:</strong> The context is initialized with a ciphersuite and
-no KID mappings.<a href="#appendix-B-5.1" class="pilcrow">¶</a>
+          <p id="appendix-B-5.1.1"><strong>Create an SFrame context:</strong> The context is initialized with a ciphersuite and
+no KID mappings.<a href="#appendix-B-5.1.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-B-5.2">
-          <strong>Adding a key for sending:</strong> The key and salt are derived from the base key, and
-used to initialize a send context, together with a zero counter value.<a href="#appendix-B-5.2" class="pilcrow">¶</a>
+          <p id="appendix-B-5.2.1"><strong>Adding a key for sending:</strong> The key and salt are derived from the base key, and
+used to initialize a send context, together with a zero counter value.<a href="#appendix-B-5.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-B-5.3">
-          <strong>Adding a key for receiving:</strong> The key and salt are derived from the base key, and
-used to initialize a send context.<a href="#appendix-B-5.3" class="pilcrow">¶</a>
+          <p id="appendix-B-5.3.1"><strong>Adding a key for receiving:</strong> The key and salt are derived from the base key, and
+used to initialize a send context.<a href="#appendix-B-5.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-B-5.4">
-          <strong>Encrypt a plaintext:</strong> Encrypt a given plaintext using the key for a given KID,
-including the specified metadata.<a href="#appendix-B-5.4" class="pilcrow">¶</a>
+          <p id="appendix-B-5.4.1"><strong>Encrypt a plaintext:</strong> Encrypt a given plaintext using the key for a given KID,
+including the specified metadata.<a href="#appendix-B-5.4.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-B-5.5">
-          <strong>Decrypt an SFrame ciphertext:</strong> Decrypt an SFrame ciphertext with the KID
-and CTR values specified in the SFrame Header, and the provided metadata.<a href="#appendix-B-5.5" class="pilcrow">¶</a>
+          <p id="appendix-B-5.5.1"><strong>Decrypt an SFrame ciphertext:</strong> Decrypt an SFrame ciphertext with the KID
+and CTR values specified in the SFrame Header, and the provided metadata.<a href="#appendix-B-5.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="appendix-B-6"><a href="#rust-api" class="auto internal xref">Figure 8</a> shows an example of the types of structures and methods that could
@@ -3015,13 +3085,17 @@ trait SFrameContextMethods {
 necessary to transmit a given media stream.  Exactly how much overhead will be added
 depends on several factors:<a href="#appendix-C-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C-2.1">How many senders are involved in a conference (length of KID)<a href="#appendix-C-2.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C-2.1">
+          <p id="appendix-C-2.1.1">How many senders are involved in a conference (length of KID)<a href="#appendix-C-2.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="appendix-C-2.2">How long the conference has been going on (length of CTR)<a href="#appendix-C-2.2" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-2.2">
+          <p id="appendix-C-2.2.1">How long the conference has been going on (length of CTR)<a href="#appendix-C-2.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="appendix-C-2.3">The cipher suite in use (length of authentication tag)<a href="#appendix-C-2.3" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-2.3">
+          <p id="appendix-C-2.3.1">The cipher suite in use (length of authentication tag)<a href="#appendix-C-2.3.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="appendix-C-2.4">Whether SFrame is used to encrypt packets, whole frames, or some other unit<a href="#appendix-C-2.4" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-2.4">
+          <p id="appendix-C-2.4.1">Whether SFrame is used to encrypt packets, whole frames, or some other unit<a href="#appendix-C-2.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="appendix-C-3">Overall, the overhead rate in kilobits per second can be estimated as:<a href="#appendix-C-3" class="pilcrow">¶</a></p>
@@ -3048,7 +3122,7 @@ bound on those seen in practice.<a href="#appendix-C.1-1" class="pilcrow">¶</a>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Field</th>
               <th class="text-right" rowspan="1" colspan="1">Bytes</th>
-              <th class="text-left" rowspan="1" colspan="1">Explanataion</th>
+              <th class="text-left" rowspan="1" colspan="1">Explanation</th>
             </tr>
           </thead>
           <tbody>
@@ -3092,11 +3166,14 @@ or per-frame level.<a href="#appendix-C.2-1" class="pilcrow">¶</a></p>
 <p id="appendix-C.2-2">The below table considers three scenarios, based on recommended configurations
 of the Opus codec <span>[<a href="#RFC6716" class="cite xref">RFC6716</a>]</span>:<a href="#appendix-C.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C.2-3.1">Narrow-band speech: 120ms packets, 8Kbps<a href="#appendix-C.2-3.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C.2-3.1">
+            <p id="appendix-C.2-3.1.1">Narrow-band speech: 120ms packets, 8Kbps<a href="#appendix-C.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-C.2-3.2">Full-band speech: 20ms packets, 32Kbps<a href="#appendix-C.2-3.2" class="pilcrow">¶</a>
+          <li class="normal" id="appendix-C.2-3.2">
+            <p id="appendix-C.2-3.2.1">Full-band speech: 20ms packets, 32Kbps<a href="#appendix-C.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-C.2-3.3">Full-band stereo music: 10ms packets, 128Kbps<a href="#appendix-C.2-3.3" class="pilcrow">¶</a>
+          <li class="normal" id="appendix-C.2-3.3">
+            <p id="appendix-C.2-3.3.1">Full-band stereo music: 10ms packets, 128Kbps<a href="#appendix-C.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <span id="name-sframe-overhead-for-audio-s"></span><div id="audio-overhead">
@@ -3557,2043 +3634,2045 @@ JSON strings containing the hex encoding of the byte strings.<a href="#appendix-
 <p id="appendix-D.1-1">For each case, we provide:<a href="#appendix-D.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-D.1-2.1">
-            <code>kid</code>: A KID value<a href="#appendix-D.1-2.1" class="pilcrow">¶</a>
+            <p id="appendix-D.1-2.1.1"><code>kid</code>: A KID value<a href="#appendix-D.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.1-2.2">
-            <code>ctr</code>: A CTR value<a href="#appendix-D.1-2.2" class="pilcrow">¶</a>
+            <p id="appendix-D.1-2.2.1"><code>ctr</code>: A CTR value<a href="#appendix-D.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.1-2.3">
-            <code>header</code>: An encoded SFrame header<a href="#appendix-D.1-2.3" class="pilcrow">¶</a>
+            <p id="appendix-D.1-2.3.1"><code>header</code>: An encoded SFrame header<a href="#appendix-D.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="appendix-D.1-3">An implementation should verify that:<a href="#appendix-D.1-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-D.1-4.1">Encoding a header with the KID and CTR results in the provided header value<a href="#appendix-D.1-4.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-D.1-4.1">
+            <p id="appendix-D.1-4.1.1">Encoding a header with the KID and CTR results in the provided header value<a href="#appendix-D.1-4.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="appendix-D.1-4.2">Decoding the provided header value results in the provided KID and CTR values<a href="#appendix-D.1-4.2" class="pilcrow">¶</a>
+          <li class="normal" id="appendix-D.1-4.2">
+            <p id="appendix-D.1-4.2.1">Decoding the provided header value results in the provided KID and CTR values<a href="#appendix-D.1-4.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <div class="alignLeft art-text artwork" id="appendix-D.1-5">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0000000000000000
-header: 0000
+header: 00
 </pre><a href="#appendix-D.1-5" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-6">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0000000000000001
-header: 0001
+header: 01
 </pre><a href="#appendix-D.1-6" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-7">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x00000000000000ff
-header: 00ff
+header: 08ff
 </pre><a href="#appendix-D.1-7" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-8">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0000000000000100
-header: 100100
+header: 090100
 </pre><a href="#appendix-D.1-8" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-9">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x000000000000ffff
-header: 10ffff
+header: 09ffff
 </pre><a href="#appendix-D.1-9" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-10">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0000000000010000
-header: 20010000
+header: 0a010000
 </pre><a href="#appendix-D.1-10" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-11">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0000000000ffffff
-header: 20ffffff
+header: 0affffff
 </pre><a href="#appendix-D.1-11" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-12">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0000000001000000
-header: 3001000000
+header: 0b01000000
 </pre><a href="#appendix-D.1-12" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-13">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x00000000ffffffff
-header: 30ffffffff
+header: 0bffffffff
 </pre><a href="#appendix-D.1-13" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-14">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0000000100000000
-header: 400100000000
+header: 0c0100000000
 </pre><a href="#appendix-D.1-14" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-15">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x000000ffffffffff
-header: 40ffffffffff
+header: 0cffffffffff
 </pre><a href="#appendix-D.1-15" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-16">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0000010000000000
-header: 50010000000000
+header: 0d010000000000
 </pre><a href="#appendix-D.1-16" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-17">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0000ffffffffffff
-header: 50ffffffffffff
+header: 0dffffffffffff
 </pre><a href="#appendix-D.1-17" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-18">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0001000000000000
-header: 6001000000000000
+header: 0e01000000000000
 </pre><a href="#appendix-D.1-18" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-19">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x00ffffffffffffff
-header: 60ffffffffffffff
+header: 0effffffffffffff
 </pre><a href="#appendix-D.1-19" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-20">
 <pre>
 kid: 0x0000000000000000
 ctr: 0x0100000000000000
-header: 700100000000000000
+header: 0f0100000000000000
 </pre><a href="#appendix-D.1-20" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-21">
 <pre>
 kid: 0x0000000000000000
 ctr: 0xffffffffffffffff
-header: 70ffffffffffffffff
+header: 0fffffffffffffffff
 </pre><a href="#appendix-D.1-21" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-22">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0000000000000000
-header: 0100
+header: 10
 </pre><a href="#appendix-D.1-22" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-23">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0000000000000001
-header: 0101
+header: 11
 </pre><a href="#appendix-D.1-23" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-24">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x00000000000000ff
-header: 01ff
+header: 18ff
 </pre><a href="#appendix-D.1-24" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-25">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0000000000000100
-header: 110100
+header: 190100
 </pre><a href="#appendix-D.1-25" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-26">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x000000000000ffff
-header: 11ffff
+header: 19ffff
 </pre><a href="#appendix-D.1-26" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-27">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0000000000010000
-header: 21010000
+header: 1a010000
 </pre><a href="#appendix-D.1-27" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-28">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0000000000ffffff
-header: 21ffffff
+header: 1affffff
 </pre><a href="#appendix-D.1-28" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-29">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0000000001000000
-header: 3101000000
+header: 1b01000000
 </pre><a href="#appendix-D.1-29" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-30">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x00000000ffffffff
-header: 31ffffffff
+header: 1bffffffff
 </pre><a href="#appendix-D.1-30" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-31">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0000000100000000
-header: 410100000000
+header: 1c0100000000
 </pre><a href="#appendix-D.1-31" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-32">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x000000ffffffffff
-header: 41ffffffffff
+header: 1cffffffffff
 </pre><a href="#appendix-D.1-32" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-33">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0000010000000000
-header: 51010000000000
+header: 1d010000000000
 </pre><a href="#appendix-D.1-33" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-34">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0000ffffffffffff
-header: 51ffffffffffff
+header: 1dffffffffffff
 </pre><a href="#appendix-D.1-34" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-35">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0001000000000000
-header: 6101000000000000
+header: 1e01000000000000
 </pre><a href="#appendix-D.1-35" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-36">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x00ffffffffffffff
-header: 61ffffffffffffff
+header: 1effffffffffffff
 </pre><a href="#appendix-D.1-36" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-37">
 <pre>
 kid: 0x0000000000000001
 ctr: 0x0100000000000000
-header: 710100000000000000
+header: 1f0100000000000000
 </pre><a href="#appendix-D.1-37" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-38">
 <pre>
 kid: 0x0000000000000001
 ctr: 0xffffffffffffffff
-header: 71ffffffffffffffff
+header: 1fffffffffffffffff
 </pre><a href="#appendix-D.1-38" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-39">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0000000000000000
-header: 08ff00
+header: 80ff
 </pre><a href="#appendix-D.1-39" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-40">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0000000000000001
-header: 08ff01
+header: 81ff
 </pre><a href="#appendix-D.1-40" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-41">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x00000000000000ff
-header: 08ffff
+header: 88ffff
 </pre><a href="#appendix-D.1-41" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-42">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0000000000000100
-header: 18ff0100
+header: 89ff0100
 </pre><a href="#appendix-D.1-42" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-43">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x000000000000ffff
-header: 18ffffff
+header: 89ffffff
 </pre><a href="#appendix-D.1-43" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-44">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0000000000010000
-header: 28ff010000
+header: 8aff010000
 </pre><a href="#appendix-D.1-44" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-45">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0000000000ffffff
-header: 28ffffffff
+header: 8affffffff
 </pre><a href="#appendix-D.1-45" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-46">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0000000001000000
-header: 38ff01000000
+header: 8bff01000000
 </pre><a href="#appendix-D.1-46" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-47">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x00000000ffffffff
-header: 38ffffffffff
+header: 8bffffffffff
 </pre><a href="#appendix-D.1-47" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-48">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0000000100000000
-header: 48ff0100000000
+header: 8cff0100000000
 </pre><a href="#appendix-D.1-48" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-49">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x000000ffffffffff
-header: 48ffffffffffff
+header: 8cffffffffffff
 </pre><a href="#appendix-D.1-49" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-50">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0000010000000000
-header: 58ff010000000000
+header: 8dff010000000000
 </pre><a href="#appendix-D.1-50" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-51">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0000ffffffffffff
-header: 58ffffffffffffff
+header: 8dffffffffffffff
 </pre><a href="#appendix-D.1-51" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-52">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0001000000000000
-header: 68ff01000000000000
+header: 8eff01000000000000
 </pre><a href="#appendix-D.1-52" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-53">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x00ffffffffffffff
-header: 68ffffffffffffffff
+header: 8effffffffffffffff
 </pre><a href="#appendix-D.1-53" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-54">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0x0100000000000000
-header: 78ff0100000000000000
+header: 8fff0100000000000000
 </pre><a href="#appendix-D.1-54" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-55">
 <pre>
 kid: 0x00000000000000ff
 ctr: 0xffffffffffffffff
-header: 78ffffffffffffffffff
+header: 8fffffffffffffffffff
 </pre><a href="#appendix-D.1-55" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-56">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0000000000000000
-header: 09010000
+header: 900100
 </pre><a href="#appendix-D.1-56" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-57">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0000000000000001
-header: 09010001
+header: 910100
 </pre><a href="#appendix-D.1-57" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-58">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x00000000000000ff
-header: 090100ff
+header: 980100ff
 </pre><a href="#appendix-D.1-58" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-59">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0000000000000100
-header: 1901000100
+header: 9901000100
 </pre><a href="#appendix-D.1-59" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-60">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x000000000000ffff
-header: 190100ffff
+header: 990100ffff
 </pre><a href="#appendix-D.1-60" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-61">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0000000000010000
-header: 290100010000
+header: 9a0100010000
 </pre><a href="#appendix-D.1-61" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-62">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0000000000ffffff
-header: 290100ffffff
+header: 9a0100ffffff
 </pre><a href="#appendix-D.1-62" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-63">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0000000001000000
-header: 39010001000000
+header: 9b010001000000
 </pre><a href="#appendix-D.1-63" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-64">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x00000000ffffffff
-header: 390100ffffffff
+header: 9b0100ffffffff
 </pre><a href="#appendix-D.1-64" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-65">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0000000100000000
-header: 4901000100000000
+header: 9c01000100000000
 </pre><a href="#appendix-D.1-65" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-66">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x000000ffffffffff
-header: 490100ffffffffff
+header: 9c0100ffffffffff
 </pre><a href="#appendix-D.1-66" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-67">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0000010000000000
-header: 590100010000000000
+header: 9d0100010000000000
 </pre><a href="#appendix-D.1-67" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-68">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0000ffffffffffff
-header: 590100ffffffffffff
+header: 9d0100ffffffffffff
 </pre><a href="#appendix-D.1-68" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-69">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0001000000000000
-header: 69010001000000000000
+header: 9e010001000000000000
 </pre><a href="#appendix-D.1-69" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-70">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x00ffffffffffffff
-header: 690100ffffffffffffff
+header: 9e0100ffffffffffffff
 </pre><a href="#appendix-D.1-70" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-71">
 <pre>
 kid: 0x0000000000000100
 ctr: 0x0100000000000000
-header: 7901000100000000000000
+header: 9f01000100000000000000
 </pre><a href="#appendix-D.1-71" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-72">
 <pre>
 kid: 0x0000000000000100
 ctr: 0xffffffffffffffff
-header: 790100ffffffffffffffff
+header: 9f0100ffffffffffffffff
 </pre><a href="#appendix-D.1-72" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-73">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0000000000000000
-header: 09ffff00
+header: 90ffff
 </pre><a href="#appendix-D.1-73" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-74">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0000000000000001
-header: 09ffff01
+header: 91ffff
 </pre><a href="#appendix-D.1-74" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-75">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x00000000000000ff
-header: 09ffffff
+header: 98ffffff
 </pre><a href="#appendix-D.1-75" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-76">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0000000000000100
-header: 19ffff0100
+header: 99ffff0100
 </pre><a href="#appendix-D.1-76" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-77">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x000000000000ffff
-header: 19ffffffff
+header: 99ffffffff
 </pre><a href="#appendix-D.1-77" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-78">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0000000000010000
-header: 29ffff010000
+header: 9affff010000
 </pre><a href="#appendix-D.1-78" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-79">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0000000000ffffff
-header: 29ffffffffff
+header: 9affffffffff
 </pre><a href="#appendix-D.1-79" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-80">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0000000001000000
-header: 39ffff01000000
+header: 9bffff01000000
 </pre><a href="#appendix-D.1-80" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-81">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x00000000ffffffff
-header: 39ffffffffffff
+header: 9bffffffffffff
 </pre><a href="#appendix-D.1-81" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-82">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0000000100000000
-header: 49ffff0100000000
+header: 9cffff0100000000
 </pre><a href="#appendix-D.1-82" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-83">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x000000ffffffffff
-header: 49ffffffffffffff
+header: 9cffffffffffffff
 </pre><a href="#appendix-D.1-83" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-84">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0000010000000000
-header: 59ffff010000000000
+header: 9dffff010000000000
 </pre><a href="#appendix-D.1-84" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-85">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0000ffffffffffff
-header: 59ffffffffffffffff
+header: 9dffffffffffffffff
 </pre><a href="#appendix-D.1-85" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-86">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0001000000000000
-header: 69ffff01000000000000
+header: 9effff01000000000000
 </pre><a href="#appendix-D.1-86" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-87">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x00ffffffffffffff
-header: 69ffffffffffffffffff
+header: 9effffffffffffffffff
 </pre><a href="#appendix-D.1-87" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-88">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0x0100000000000000
-header: 79ffff0100000000000000
+header: 9fffff0100000000000000
 </pre><a href="#appendix-D.1-88" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-89">
 <pre>
 kid: 0x000000000000ffff
 ctr: 0xffffffffffffffff
-header: 79ffffffffffffffffffff
+header: 9fffffffffffffffffffff
 </pre><a href="#appendix-D.1-89" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-90">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0000000000000000
-header: 0a01000000
+header: a0010000
 </pre><a href="#appendix-D.1-90" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-91">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0000000000000001
-header: 0a01000001
+header: a1010000
 </pre><a href="#appendix-D.1-91" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-92">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x00000000000000ff
-header: 0a010000ff
+header: a8010000ff
 </pre><a href="#appendix-D.1-92" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-93">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0000000000000100
-header: 1a0100000100
+header: a90100000100
 </pre><a href="#appendix-D.1-93" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-94">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x000000000000ffff
-header: 1a010000ffff
+header: a9010000ffff
 </pre><a href="#appendix-D.1-94" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-95">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0000000000010000
-header: 2a010000010000
+header: aa010000010000
 </pre><a href="#appendix-D.1-95" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-96">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0000000000ffffff
-header: 2a010000ffffff
+header: aa010000ffffff
 </pre><a href="#appendix-D.1-96" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-97">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0000000001000000
-header: 3a01000001000000
+header: ab01000001000000
 </pre><a href="#appendix-D.1-97" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-98">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x00000000ffffffff
-header: 3a010000ffffffff
+header: ab010000ffffffff
 </pre><a href="#appendix-D.1-98" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-99">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0000000100000000
-header: 4a0100000100000000
+header: ac0100000100000000
 </pre><a href="#appendix-D.1-99" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-100">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x000000ffffffffff
-header: 4a010000ffffffffff
+header: ac010000ffffffffff
 </pre><a href="#appendix-D.1-100" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-101">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0000010000000000
-header: 5a010000010000000000
+header: ad010000010000000000
 </pre><a href="#appendix-D.1-101" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-102">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0000ffffffffffff
-header: 5a010000ffffffffffff
+header: ad010000ffffffffffff
 </pre><a href="#appendix-D.1-102" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-103">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0001000000000000
-header: 6a01000001000000000000
+header: ae01000001000000000000
 </pre><a href="#appendix-D.1-103" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-104">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x00ffffffffffffff
-header: 6a010000ffffffffffffff
+header: ae010000ffffffffffffff
 </pre><a href="#appendix-D.1-104" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-105">
 <pre>
 kid: 0x0000000000010000
 ctr: 0x0100000000000000
-header: 7a0100000100000000000000
+header: af0100000100000000000000
 </pre><a href="#appendix-D.1-105" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-106">
 <pre>
 kid: 0x0000000000010000
 ctr: 0xffffffffffffffff
-header: 7a010000ffffffffffffffff
+header: af010000ffffffffffffffff
 </pre><a href="#appendix-D.1-106" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-107">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0000000000000000
-header: 0affffff00
+header: a0ffffff
 </pre><a href="#appendix-D.1-107" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-108">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0000000000000001
-header: 0affffff01
+header: a1ffffff
 </pre><a href="#appendix-D.1-108" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-109">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x00000000000000ff
-header: 0affffffff
+header: a8ffffffff
 </pre><a href="#appendix-D.1-109" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-110">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0000000000000100
-header: 1affffff0100
+header: a9ffffff0100
 </pre><a href="#appendix-D.1-110" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-111">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x000000000000ffff
-header: 1affffffffff
+header: a9ffffffffff
 </pre><a href="#appendix-D.1-111" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-112">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0000000000010000
-header: 2affffff010000
+header: aaffffff010000
 </pre><a href="#appendix-D.1-112" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-113">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0000000000ffffff
-header: 2affffffffffff
+header: aaffffffffffff
 </pre><a href="#appendix-D.1-113" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-114">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0000000001000000
-header: 3affffff01000000
+header: abffffff01000000
 </pre><a href="#appendix-D.1-114" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-115">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x00000000ffffffff
-header: 3affffffffffffff
+header: abffffffffffffff
 </pre><a href="#appendix-D.1-115" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-116">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0000000100000000
-header: 4affffff0100000000
+header: acffffff0100000000
 </pre><a href="#appendix-D.1-116" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-117">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x000000ffffffffff
-header: 4affffffffffffffff
+header: acffffffffffffffff
 </pre><a href="#appendix-D.1-117" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-118">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0000010000000000
-header: 5affffff010000000000
+header: adffffff010000000000
 </pre><a href="#appendix-D.1-118" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-119">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0000ffffffffffff
-header: 5affffffffffffffffff
+header: adffffffffffffffffff
 </pre><a href="#appendix-D.1-119" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-120">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0001000000000000
-header: 6affffff01000000000000
+header: aeffffff01000000000000
 </pre><a href="#appendix-D.1-120" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-121">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x00ffffffffffffff
-header: 6affffffffffffffffffff
+header: aeffffffffffffffffffff
 </pre><a href="#appendix-D.1-121" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-122">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0x0100000000000000
-header: 7affffff0100000000000000
+header: afffffff0100000000000000
 </pre><a href="#appendix-D.1-122" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-123">
 <pre>
 kid: 0x0000000000ffffff
 ctr: 0xffffffffffffffff
-header: 7affffffffffffffffffffff
+header: afffffffffffffffffffffff
 </pre><a href="#appendix-D.1-123" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-124">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0000000000000000
-header: 0b0100000000
+header: b001000000
 </pre><a href="#appendix-D.1-124" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-125">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0000000000000001
-header: 0b0100000001
+header: b101000000
 </pre><a href="#appendix-D.1-125" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-126">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x00000000000000ff
-header: 0b01000000ff
+header: b801000000ff
 </pre><a href="#appendix-D.1-126" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-127">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0000000000000100
-header: 1b010000000100
+header: b9010000000100
 </pre><a href="#appendix-D.1-127" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-128">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x000000000000ffff
-header: 1b01000000ffff
+header: b901000000ffff
 </pre><a href="#appendix-D.1-128" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-129">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0000000000010000
-header: 2b01000000010000
+header: ba01000000010000
 </pre><a href="#appendix-D.1-129" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-130">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0000000000ffffff
-header: 2b01000000ffffff
+header: ba01000000ffffff
 </pre><a href="#appendix-D.1-130" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-131">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0000000001000000
-header: 3b0100000001000000
+header: bb0100000001000000
 </pre><a href="#appendix-D.1-131" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-132">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x00000000ffffffff
-header: 3b01000000ffffffff
+header: bb01000000ffffffff
 </pre><a href="#appendix-D.1-132" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-133">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0000000100000000
-header: 4b010000000100000000
+header: bc010000000100000000
 </pre><a href="#appendix-D.1-133" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-134">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x000000ffffffffff
-header: 4b01000000ffffffffff
+header: bc01000000ffffffffff
 </pre><a href="#appendix-D.1-134" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-135">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0000010000000000
-header: 5b01000000010000000000
+header: bd01000000010000000000
 </pre><a href="#appendix-D.1-135" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-136">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0000ffffffffffff
-header: 5b01000000ffffffffffff
+header: bd01000000ffffffffffff
 </pre><a href="#appendix-D.1-136" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-137">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0001000000000000
-header: 6b0100000001000000000000
+header: be0100000001000000000000
 </pre><a href="#appendix-D.1-137" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-138">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x00ffffffffffffff
-header: 6b01000000ffffffffffffff
+header: be01000000ffffffffffffff
 </pre><a href="#appendix-D.1-138" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-139">
 <pre>
 kid: 0x0000000001000000
 ctr: 0x0100000000000000
-header: 7b010000000100000000000000
+header: bf010000000100000000000000
 </pre><a href="#appendix-D.1-139" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-140">
 <pre>
 kid: 0x0000000001000000
 ctr: 0xffffffffffffffff
-header: 7b01000000ffffffffffffffff
+header: bf01000000ffffffffffffffff
 </pre><a href="#appendix-D.1-140" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-141">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0000000000000000
-header: 0bffffffff00
+header: b0ffffffff
 </pre><a href="#appendix-D.1-141" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-142">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0000000000000001
-header: 0bffffffff01
+header: b1ffffffff
 </pre><a href="#appendix-D.1-142" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-143">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x00000000000000ff
-header: 0bffffffffff
+header: b8ffffffffff
 </pre><a href="#appendix-D.1-143" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-144">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0000000000000100
-header: 1bffffffff0100
+header: b9ffffffff0100
 </pre><a href="#appendix-D.1-144" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-145">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x000000000000ffff
-header: 1bffffffffffff
+header: b9ffffffffffff
 </pre><a href="#appendix-D.1-145" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-146">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0000000000010000
-header: 2bffffffff010000
+header: baffffffff010000
 </pre><a href="#appendix-D.1-146" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-147">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0000000000ffffff
-header: 2bffffffffffffff
+header: baffffffffffffff
 </pre><a href="#appendix-D.1-147" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-148">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0000000001000000
-header: 3bffffffff01000000
+header: bbffffffff01000000
 </pre><a href="#appendix-D.1-148" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-149">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x00000000ffffffff
-header: 3bffffffffffffffff
+header: bbffffffffffffffff
 </pre><a href="#appendix-D.1-149" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-150">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0000000100000000
-header: 4bffffffff0100000000
+header: bcffffffff0100000000
 </pre><a href="#appendix-D.1-150" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-151">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x000000ffffffffff
-header: 4bffffffffffffffffff
+header: bcffffffffffffffffff
 </pre><a href="#appendix-D.1-151" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-152">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0000010000000000
-header: 5bffffffff010000000000
+header: bdffffffff010000000000
 </pre><a href="#appendix-D.1-152" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-153">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0000ffffffffffff
-header: 5bffffffffffffffffffff
+header: bdffffffffffffffffffff
 </pre><a href="#appendix-D.1-153" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-154">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0001000000000000
-header: 6bffffffff01000000000000
+header: beffffffff01000000000000
 </pre><a href="#appendix-D.1-154" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-155">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x00ffffffffffffff
-header: 6bffffffffffffffffffffff
+header: beffffffffffffffffffffff
 </pre><a href="#appendix-D.1-155" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-156">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0x0100000000000000
-header: 7bffffffff0100000000000000
+header: bfffffffff0100000000000000
 </pre><a href="#appendix-D.1-156" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-157">
 <pre>
 kid: 0x00000000ffffffff
 ctr: 0xffffffffffffffff
-header: 7bffffffffffffffffffffffff
+header: bfffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-157" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-158">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0000000000000000
-header: 0c010000000000
+header: c00100000000
 </pre><a href="#appendix-D.1-158" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-159">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0000000000000001
-header: 0c010000000001
+header: c10100000000
 </pre><a href="#appendix-D.1-159" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-160">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x00000000000000ff
-header: 0c0100000000ff
+header: c80100000000ff
 </pre><a href="#appendix-D.1-160" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-161">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0000000000000100
-header: 1c01000000000100
+header: c901000000000100
 </pre><a href="#appendix-D.1-161" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-162">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x000000000000ffff
-header: 1c0100000000ffff
+header: c90100000000ffff
 </pre><a href="#appendix-D.1-162" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-163">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0000000000010000
-header: 2c0100000000010000
+header: ca0100000000010000
 </pre><a href="#appendix-D.1-163" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-164">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0000000000ffffff
-header: 2c0100000000ffffff
+header: ca0100000000ffffff
 </pre><a href="#appendix-D.1-164" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-165">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0000000001000000
-header: 3c010000000001000000
+header: cb010000000001000000
 </pre><a href="#appendix-D.1-165" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-166">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x00000000ffffffff
-header: 3c0100000000ffffffff
+header: cb0100000000ffffffff
 </pre><a href="#appendix-D.1-166" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-167">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0000000100000000
-header: 4c01000000000100000000
+header: cc01000000000100000000
 </pre><a href="#appendix-D.1-167" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-168">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x000000ffffffffff
-header: 4c0100000000ffffffffff
+header: cc0100000000ffffffffff
 </pre><a href="#appendix-D.1-168" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-169">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0000010000000000
-header: 5c0100000000010000000000
+header: cd0100000000010000000000
 </pre><a href="#appendix-D.1-169" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-170">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0000ffffffffffff
-header: 5c0100000000ffffffffffff
+header: cd0100000000ffffffffffff
 </pre><a href="#appendix-D.1-170" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-171">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0001000000000000
-header: 6c010000000001000000000000
+header: ce010000000001000000000000
 </pre><a href="#appendix-D.1-171" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-172">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x00ffffffffffffff
-header: 6c0100000000ffffffffffffff
+header: ce0100000000ffffffffffffff
 </pre><a href="#appendix-D.1-172" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-173">
 <pre>
 kid: 0x0000000100000000
 ctr: 0x0100000000000000
-header: 7c01000000000100000000000000
+header: cf01000000000100000000000000
 </pre><a href="#appendix-D.1-173" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-174">
 <pre>
 kid: 0x0000000100000000
 ctr: 0xffffffffffffffff
-header: 7c0100000000ffffffffffffffff
+header: cf0100000000ffffffffffffffff
 </pre><a href="#appendix-D.1-174" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-175">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0000000000000000
-header: 0cffffffffff00
+header: c0ffffffffff
 </pre><a href="#appendix-D.1-175" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-176">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0000000000000001
-header: 0cffffffffff01
+header: c1ffffffffff
 </pre><a href="#appendix-D.1-176" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-177">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x00000000000000ff
-header: 0cffffffffffff
+header: c8ffffffffffff
 </pre><a href="#appendix-D.1-177" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-178">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0000000000000100
-header: 1cffffffffff0100
+header: c9ffffffffff0100
 </pre><a href="#appendix-D.1-178" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-179">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x000000000000ffff
-header: 1cffffffffffffff
+header: c9ffffffffffffff
 </pre><a href="#appendix-D.1-179" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-180">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0000000000010000
-header: 2cffffffffff010000
+header: caffffffffff010000
 </pre><a href="#appendix-D.1-180" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-181">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0000000000ffffff
-header: 2cffffffffffffffff
+header: caffffffffffffffff
 </pre><a href="#appendix-D.1-181" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-182">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0000000001000000
-header: 3cffffffffff01000000
+header: cbffffffffff01000000
 </pre><a href="#appendix-D.1-182" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-183">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x00000000ffffffff
-header: 3cffffffffffffffffff
+header: cbffffffffffffffffff
 </pre><a href="#appendix-D.1-183" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-184">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0000000100000000
-header: 4cffffffffff0100000000
+header: ccffffffffff0100000000
 </pre><a href="#appendix-D.1-184" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-185">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x000000ffffffffff
-header: 4cffffffffffffffffffff
+header: ccffffffffffffffffffff
 </pre><a href="#appendix-D.1-185" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-186">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0000010000000000
-header: 5cffffffffff010000000000
+header: cdffffffffff010000000000
 </pre><a href="#appendix-D.1-186" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-187">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0000ffffffffffff
-header: 5cffffffffffffffffffffff
+header: cdffffffffffffffffffffff
 </pre><a href="#appendix-D.1-187" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-188">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0001000000000000
-header: 6cffffffffff01000000000000
+header: ceffffffffff01000000000000
 </pre><a href="#appendix-D.1-188" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-189">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x00ffffffffffffff
-header: 6cffffffffffffffffffffffff
+header: ceffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-189" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-190">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0x0100000000000000
-header: 7cffffffffff0100000000000000
+header: cfffffffffff0100000000000000
 </pre><a href="#appendix-D.1-190" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-191">
 <pre>
 kid: 0x000000ffffffffff
 ctr: 0xffffffffffffffff
-header: 7cffffffffffffffffffffffffff
+header: cfffffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-191" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-192">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0000000000000000
-header: 0d01000000000000
+header: d0010000000000
 </pre><a href="#appendix-D.1-192" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-193">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0000000000000001
-header: 0d01000000000001
+header: d1010000000000
 </pre><a href="#appendix-D.1-193" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-194">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x00000000000000ff
-header: 0d010000000000ff
+header: d8010000000000ff
 </pre><a href="#appendix-D.1-194" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-195">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0000000000000100
-header: 1d0100000000000100
+header: d90100000000000100
 </pre><a href="#appendix-D.1-195" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-196">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x000000000000ffff
-header: 1d010000000000ffff
+header: d9010000000000ffff
 </pre><a href="#appendix-D.1-196" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-197">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0000000000010000
-header: 2d010000000000010000
+header: da010000000000010000
 </pre><a href="#appendix-D.1-197" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-198">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0000000000ffffff
-header: 2d010000000000ffffff
+header: da010000000000ffffff
 </pre><a href="#appendix-D.1-198" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-199">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0000000001000000
-header: 3d01000000000001000000
+header: db01000000000001000000
 </pre><a href="#appendix-D.1-199" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-200">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x00000000ffffffff
-header: 3d010000000000ffffffff
+header: db010000000000ffffffff
 </pre><a href="#appendix-D.1-200" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-201">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0000000100000000
-header: 4d0100000000000100000000
+header: dc0100000000000100000000
 </pre><a href="#appendix-D.1-201" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-202">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x000000ffffffffff
-header: 4d010000000000ffffffffff
+header: dc010000000000ffffffffff
 </pre><a href="#appendix-D.1-202" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-203">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0000010000000000
-header: 5d010000000000010000000000
+header: dd010000000000010000000000
 </pre><a href="#appendix-D.1-203" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-204">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0000ffffffffffff
-header: 5d010000000000ffffffffffff
+header: dd010000000000ffffffffffff
 </pre><a href="#appendix-D.1-204" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-205">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0001000000000000
-header: 6d01000000000001000000000000
+header: de01000000000001000000000000
 </pre><a href="#appendix-D.1-205" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-206">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x00ffffffffffffff
-header: 6d010000000000ffffffffffffff
+header: de010000000000ffffffffffffff
 </pre><a href="#appendix-D.1-206" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-207">
 <pre>
 kid: 0x0000010000000000
 ctr: 0x0100000000000000
-header: 7d0100000000000100000000000000
+header: df0100000000000100000000000000
 </pre><a href="#appendix-D.1-207" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-208">
 <pre>
 kid: 0x0000010000000000
 ctr: 0xffffffffffffffff
-header: 7d010000000000ffffffffffffffff
+header: df010000000000ffffffffffffffff
 </pre><a href="#appendix-D.1-208" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-209">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0000000000000000
-header: 0dffffffffffff00
+header: d0ffffffffffff
 </pre><a href="#appendix-D.1-209" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-210">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0000000000000001
-header: 0dffffffffffff01
+header: d1ffffffffffff
 </pre><a href="#appendix-D.1-210" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-211">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x00000000000000ff
-header: 0dffffffffffffff
+header: d8ffffffffffffff
 </pre><a href="#appendix-D.1-211" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-212">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0000000000000100
-header: 1dffffffffffff0100
+header: d9ffffffffffff0100
 </pre><a href="#appendix-D.1-212" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-213">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x000000000000ffff
-header: 1dffffffffffffffff
+header: d9ffffffffffffffff
 </pre><a href="#appendix-D.1-213" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-214">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0000000000010000
-header: 2dffffffffffff010000
+header: daffffffffffff010000
 </pre><a href="#appendix-D.1-214" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-215">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0000000000ffffff
-header: 2dffffffffffffffffff
+header: daffffffffffffffffff
 </pre><a href="#appendix-D.1-215" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-216">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0000000001000000
-header: 3dffffffffffff01000000
+header: dbffffffffffff01000000
 </pre><a href="#appendix-D.1-216" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-217">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x00000000ffffffff
-header: 3dffffffffffffffffffff
+header: dbffffffffffffffffffff
 </pre><a href="#appendix-D.1-217" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-218">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0000000100000000
-header: 4dffffffffffff0100000000
+header: dcffffffffffff0100000000
 </pre><a href="#appendix-D.1-218" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-219">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x000000ffffffffff
-header: 4dffffffffffffffffffffff
+header: dcffffffffffffffffffffff
 </pre><a href="#appendix-D.1-219" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-220">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0000010000000000
-header: 5dffffffffffff010000000000
+header: ddffffffffffff010000000000
 </pre><a href="#appendix-D.1-220" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-221">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0000ffffffffffff
-header: 5dffffffffffffffffffffffff
+header: ddffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-221" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-222">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0001000000000000
-header: 6dffffffffffff01000000000000
+header: deffffffffffff01000000000000
 </pre><a href="#appendix-D.1-222" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-223">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x00ffffffffffffff
-header: 6dffffffffffffffffffffffffff
+header: deffffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-223" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-224">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0x0100000000000000
-header: 7dffffffffffff0100000000000000
+header: dfffffffffffff0100000000000000
 </pre><a href="#appendix-D.1-224" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-225">
 <pre>
 kid: 0x0000ffffffffffff
 ctr: 0xffffffffffffffff
-header: 7dffffffffffffffffffffffffffff
+header: dfffffffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-225" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-226">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0000000000000000
-header: 0e0100000000000000
+header: e001000000000000
 </pre><a href="#appendix-D.1-226" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-227">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0000000000000001
-header: 0e0100000000000001
+header: e101000000000000
 </pre><a href="#appendix-D.1-227" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-228">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x00000000000000ff
-header: 0e01000000000000ff
+header: e801000000000000ff
 </pre><a href="#appendix-D.1-228" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-229">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0000000000000100
-header: 1e010000000000000100
+header: e9010000000000000100
 </pre><a href="#appendix-D.1-229" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-230">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x000000000000ffff
-header: 1e01000000000000ffff
+header: e901000000000000ffff
 </pre><a href="#appendix-D.1-230" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-231">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0000000000010000
-header: 2e01000000000000010000
+header: ea01000000000000010000
 </pre><a href="#appendix-D.1-231" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-232">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0000000000ffffff
-header: 2e01000000000000ffffff
+header: ea01000000000000ffffff
 </pre><a href="#appendix-D.1-232" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-233">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0000000001000000
-header: 3e0100000000000001000000
+header: eb0100000000000001000000
 </pre><a href="#appendix-D.1-233" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-234">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x00000000ffffffff
-header: 3e01000000000000ffffffff
+header: eb01000000000000ffffffff
 </pre><a href="#appendix-D.1-234" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-235">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0000000100000000
-header: 4e010000000000000100000000
+header: ec010000000000000100000000
 </pre><a href="#appendix-D.1-235" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-236">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x000000ffffffffff
-header: 4e01000000000000ffffffffff
+header: ec01000000000000ffffffffff
 </pre><a href="#appendix-D.1-236" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-237">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0000010000000000
-header: 5e01000000000000010000000000
+header: ed01000000000000010000000000
 </pre><a href="#appendix-D.1-237" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-238">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0000ffffffffffff
-header: 5e01000000000000ffffffffffff
+header: ed01000000000000ffffffffffff
 </pre><a href="#appendix-D.1-238" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-239">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0001000000000000
-header: 6e0100000000000001000000000000
+header: ee0100000000000001000000000000
 </pre><a href="#appendix-D.1-239" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-240">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x00ffffffffffffff
-header: 6e01000000000000ffffffffffffff
+header: ee01000000000000ffffffffffffff
 </pre><a href="#appendix-D.1-240" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-241">
 <pre>
 kid: 0x0001000000000000
 ctr: 0x0100000000000000
-header: 7e010000000000000100000000000000
+header: ef010000000000000100000000000000
 </pre><a href="#appendix-D.1-241" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-242">
 <pre>
 kid: 0x0001000000000000
 ctr: 0xffffffffffffffff
-header: 7e01000000000000ffffffffffffffff
+header: ef01000000000000ffffffffffffffff
 </pre><a href="#appendix-D.1-242" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-243">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0000000000000000
-header: 0effffffffffffff00
+header: e0ffffffffffffff
 </pre><a href="#appendix-D.1-243" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-244">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0000000000000001
-header: 0effffffffffffff01
+header: e1ffffffffffffff
 </pre><a href="#appendix-D.1-244" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-245">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x00000000000000ff
-header: 0effffffffffffffff
+header: e8ffffffffffffffff
 </pre><a href="#appendix-D.1-245" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-246">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0000000000000100
-header: 1effffffffffffff0100
+header: e9ffffffffffffff0100
 </pre><a href="#appendix-D.1-246" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-247">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x000000000000ffff
-header: 1effffffffffffffffff
+header: e9ffffffffffffffffff
 </pre><a href="#appendix-D.1-247" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-248">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0000000000010000
-header: 2effffffffffffff010000
+header: eaffffffffffffff010000
 </pre><a href="#appendix-D.1-248" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-249">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0000000000ffffff
-header: 2effffffffffffffffffff
+header: eaffffffffffffffffffff
 </pre><a href="#appendix-D.1-249" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-250">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0000000001000000
-header: 3effffffffffffff01000000
+header: ebffffffffffffff01000000
 </pre><a href="#appendix-D.1-250" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-251">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x00000000ffffffff
-header: 3effffffffffffffffffffff
+header: ebffffffffffffffffffffff
 </pre><a href="#appendix-D.1-251" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-252">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0000000100000000
-header: 4effffffffffffff0100000000
+header: ecffffffffffffff0100000000
 </pre><a href="#appendix-D.1-252" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-253">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x000000ffffffffff
-header: 4effffffffffffffffffffffff
+header: ecffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-253" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-254">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0000010000000000
-header: 5effffffffffffff010000000000
+header: edffffffffffffff010000000000
 </pre><a href="#appendix-D.1-254" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-255">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0000ffffffffffff
-header: 5effffffffffffffffffffffffff
+header: edffffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-255" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-256">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0001000000000000
-header: 6effffffffffffff01000000000000
+header: eeffffffffffffff01000000000000
 </pre><a href="#appendix-D.1-256" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-257">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x00ffffffffffffff
-header: 6effffffffffffffffffffffffffff
+header: eeffffffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-257" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-258">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0x0100000000000000
-header: 7effffffffffffff0100000000000000
+header: efffffffffffffff0100000000000000
 </pre><a href="#appendix-D.1-258" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-259">
 <pre>
 kid: 0x00ffffffffffffff
 ctr: 0xffffffffffffffff
-header: 7effffffffffffffffffffffffffffff
+header: efffffffffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-259" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-260">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0000000000000000
-header: 0f010000000000000000
+header: f00100000000000000
 </pre><a href="#appendix-D.1-260" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-261">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0000000000000001
-header: 0f010000000000000001
+header: f10100000000000000
 </pre><a href="#appendix-D.1-261" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-262">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x00000000000000ff
-header: 0f0100000000000000ff
+header: f80100000000000000ff
 </pre><a href="#appendix-D.1-262" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-263">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0000000000000100
-header: 1f01000000000000000100
+header: f901000000000000000100
 </pre><a href="#appendix-D.1-263" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-264">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x000000000000ffff
-header: 1f0100000000000000ffff
+header: f90100000000000000ffff
 </pre><a href="#appendix-D.1-264" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-265">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0000000000010000
-header: 2f0100000000000000010000
+header: fa0100000000000000010000
 </pre><a href="#appendix-D.1-265" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-266">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0000000000ffffff
-header: 2f0100000000000000ffffff
+header: fa0100000000000000ffffff
 </pre><a href="#appendix-D.1-266" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-267">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0000000001000000
-header: 3f010000000000000001000000
+header: fb010000000000000001000000
 </pre><a href="#appendix-D.1-267" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-268">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x00000000ffffffff
-header: 3f0100000000000000ffffffff
+header: fb0100000000000000ffffffff
 </pre><a href="#appendix-D.1-268" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-269">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0000000100000000
-header: 4f01000000000000000100000000
+header: fc01000000000000000100000000
 </pre><a href="#appendix-D.1-269" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-270">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x000000ffffffffff
-header: 4f0100000000000000ffffffffff
+header: fc0100000000000000ffffffffff
 </pre><a href="#appendix-D.1-270" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-271">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0000010000000000
-header: 5f0100000000000000010000000000
+header: fd0100000000000000010000000000
 </pre><a href="#appendix-D.1-271" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-272">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0000ffffffffffff
-header: 5f0100000000000000ffffffffffff
+header: fd0100000000000000ffffffffffff
 </pre><a href="#appendix-D.1-272" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-273">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0001000000000000
-header: 6f010000000000000001000000000000
+header: fe010000000000000001000000000000
 </pre><a href="#appendix-D.1-273" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-274">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x00ffffffffffffff
-header: 6f0100000000000000ffffffffffffff
+header: fe0100000000000000ffffffffffffff
 </pre><a href="#appendix-D.1-274" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-275">
 <pre>
 kid: 0x0100000000000000
 ctr: 0x0100000000000000
-header: 7f01000000000000000100000000000000
+header: ff01000000000000000100000000000000
 </pre><a href="#appendix-D.1-275" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-276">
 <pre>
 kid: 0x0100000000000000
 ctr: 0xffffffffffffffff
-header: 7f0100000000000000ffffffffffffffff
+header: ff0100000000000000ffffffffffffffff
 </pre><a href="#appendix-D.1-276" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-277">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0000000000000000
-header: 0fffffffffffffffff00
+header: f0ffffffffffffffff
 </pre><a href="#appendix-D.1-277" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-278">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0000000000000001
-header: 0fffffffffffffffff01
+header: f1ffffffffffffffff
 </pre><a href="#appendix-D.1-278" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-279">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x00000000000000ff
-header: 0fffffffffffffffffff
+header: f8ffffffffffffffffff
 </pre><a href="#appendix-D.1-279" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-280">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0000000000000100
-header: 1fffffffffffffffff0100
+header: f9ffffffffffffffff0100
 </pre><a href="#appendix-D.1-280" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-281">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x000000000000ffff
-header: 1fffffffffffffffffffff
+header: f9ffffffffffffffffffff
 </pre><a href="#appendix-D.1-281" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-282">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0000000000010000
-header: 2fffffffffffffffff010000
+header: faffffffffffffffff010000
 </pre><a href="#appendix-D.1-282" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-283">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0000000000ffffff
-header: 2fffffffffffffffffffffff
+header: faffffffffffffffffffffff
 </pre><a href="#appendix-D.1-283" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-284">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0000000001000000
-header: 3fffffffffffffffff01000000
+header: fbffffffffffffffff01000000
 </pre><a href="#appendix-D.1-284" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-285">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x00000000ffffffff
-header: 3fffffffffffffffffffffffff
+header: fbffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-285" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-286">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0000000100000000
-header: 4fffffffffffffffff0100000000
+header: fcffffffffffffffff0100000000
 </pre><a href="#appendix-D.1-286" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-287">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x000000ffffffffff
-header: 4fffffffffffffffffffffffffff
+header: fcffffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-287" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-288">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0000010000000000
-header: 5fffffffffffffffff010000000000
+header: fdffffffffffffffff010000000000
 </pre><a href="#appendix-D.1-288" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-289">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0000ffffffffffff
-header: 5fffffffffffffffffffffffffffff
+header: fdffffffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-289" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-290">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0001000000000000
-header: 6fffffffffffffffff01000000000000
+header: feffffffffffffffff01000000000000
 </pre><a href="#appendix-D.1-290" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-291">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x00ffffffffffffff
-header: 6fffffffffffffffffffffffffffffff
+header: feffffffffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-291" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-292">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0x0100000000000000
-header: 7fffffffffffffffff0100000000000000
+header: ffffffffffffffffff0100000000000000
 </pre><a href="#appendix-D.1-292" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.1-293">
 <pre>
 kid: 0xffffffffffffffff
 ctr: 0xffffffffffffffff
-header: 7fffffffffffffffffffffffffffffffff
+header: ffffffffffffffffffffffffffffffffff
 </pre><a href="#appendix-D.1-293" class="pilcrow">¶</a>
 </div>
 </section>
@@ -5606,45 +5685,39 @@ header: 7fffffffffffffffffffffffffffffffff
 <p id="appendix-D.2-1">For each case, we provide:<a href="#appendix-D.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-D.2-2.1">
-            <code>cipher_suite</code>: The index of the cipher suite in use (see
-<a href="#sframe-cipher-suites" class="auto internal xref">Section 8.1</a>)<a href="#appendix-D.2-2.1" class="pilcrow">¶</a>
+            <p id="appendix-D.2-2.1.1"><code>cipher_suite</code>: The index of the cipher suite in use (see
+<a href="#sframe-cipher-suites" class="auto internal xref">Section 8.1</a>)<a href="#appendix-D.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.2-2.2">
-            <code>key</code>: The <code>key</code> input to encryption/decryption<a href="#appendix-D.2-2.2" class="pilcrow">¶</a>
+            <p id="appendix-D.2-2.2.1"><code>key</code>: The <code>key</code> input to encryption/decryption<a href="#appendix-D.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.2-2.3">
-            <code>aead_label</code>: The <code>aead_label</code> variable in the <code>derive_subkeys()</code> algorithm<a href="#appendix-D.2-2.3" class="pilcrow">¶</a>
+            <p id="appendix-D.2-2.3.1"><code>enc_key</code>: The encryption subkey produced by the <code>derive_subkeys()</code> algorithm<a href="#appendix-D.2-2.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.2-2.4">
-            <code>aead_secret</code>: The <code>aead_secret</code> variable in the <code>derive_subkeys()</code> algorithm<a href="#appendix-D.2-2.4" class="pilcrow">¶</a>
+            <p id="appendix-D.2-2.4.1"><code>auth_key</code>: The encryption subkey produced by the <code>derive_subkeys()</code> algorithm<a href="#appendix-D.2-2.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.2-2.5">
-            <code>enc_key</code>: The encryption subkey produced by the <code>derive_subkeys()</code> algorithm<a href="#appendix-D.2-2.5" class="pilcrow">¶</a>
+            <p id="appendix-D.2-2.5.1"><code>nonce</code>: The <code>nonce</code> input to encryption/decryption<a href="#appendix-D.2-2.5.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.2-2.6">
-            <code>auth_key</code>: The encryption subkey produced by the <code>derive_subkeys()</code> algorithm<a href="#appendix-D.2-2.6" class="pilcrow">¶</a>
+            <p id="appendix-D.2-2.6.1"><code>aad</code>: The <code>aad</code> input to encryption/decryption<a href="#appendix-D.2-2.6.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.2-2.7">
-            <code>nonce</code>: The <code>nonce</code> input to encryption/decryption<a href="#appendix-D.2-2.7" class="pilcrow">¶</a>
+            <p id="appendix-D.2-2.7.1"><code>pt</code>: The plaintext<a href="#appendix-D.2-2.7.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.2-2.8">
-            <code>aad</code>: The <code>aad</code> input to encryption/decryption<a href="#appendix-D.2-2.8" class="pilcrow">¶</a>
-</li>
-          <li class="normal" id="appendix-D.2-2.9">
-            <code>pt</code>: The plaintext<a href="#appendix-D.2-2.9" class="pilcrow">¶</a>
-</li>
-          <li class="normal" id="appendix-D.2-2.10">
-            <code>ct</code>: The ciphertext<a href="#appendix-D.2-2.10" class="pilcrow">¶</a>
+            <p id="appendix-D.2-2.8.1"><code>ct</code>: The ciphertext<a href="#appendix-D.2-2.8.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="appendix-D.2-3">An implementation should verify that the following are true, where
 <code>AEAD.Encrypt</code> and <code>AEAD.Decrypt</code> are as defined in <a href="#aes-ctr-with-sha2" class="auto internal xref">Section 4.5.1</a>:<a href="#appendix-D.2-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-D.2-4.1">
-            <code>AEAD.Encrypt(key, nonce, aad, pt) == ct</code><a href="#appendix-D.2-4.1" class="pilcrow">¶</a>
+            <p id="appendix-D.2-4.1.1"><code>AEAD.Encrypt(key, nonce, aad, pt) == ct</code><a href="#appendix-D.2-4.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.2-4.2">
-            <code>AEAD.Decrypt(key, nonce, aad, ct) == pt</code><a href="#appendix-D.2-4.2" class="pilcrow">¶</a>
+            <p id="appendix-D.2-4.2.1"><code>AEAD.Decrypt(key, nonce, aad, ct) == pt</code><a href="#appendix-D.2-4.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="appendix-D.2-5">The other values in the test vector are intermediate values provided to
@@ -5652,43 +5725,37 @@ facilitate debugging of test failures.<a href="#appendix-D.2-5" class="pilcrow">
 <div class="alignLeft art-text artwork" id="appendix-D.2-6">
 <pre>
 cipher_suite: 0x0001
-key: 000102030405060708090a0b0c0d0e0f
-aead_label: 534672616d6520312e302041455320435452204145414420000000000000000a
-aead_secret: fda0fef7af62639ae1c6440f430395f54623f9a49db659201312ed6d9999a580
-enc_key: d6a61ca11fe8397b24954cda8b9543cf
-auth_key: 0a43277c91120b7c7b6584bede06fcdfe0d07f9d1c9f15fcf0cad50aaecdd585
+key: 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f
+enc_key: 000102030405060708090a0b0c0d0e0f
+auth_key: 101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f
 nonce: 101112131415161718191a1b
 aad: 4945544620534672616d65205747
 pt: 64726166742d696574662d736672616d652d656e63
-ct: 1075c7114e10c12f20a709450ef8a891e9f070d4fae7b01f558599c929fdfd
+ct: 6339af04ada1d064688a442b8dc69d5b6bfa40f4bef0583e8081069cc60705
 </pre><a href="#appendix-D.2-6" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.2-7">
 <pre>
 cipher_suite: 0x0002
-key: 000102030405060708090a0b0c0d0e0f
-aead_label: 534672616d6520312e3020414553204354522041454144200000000000000008
-aead_secret: a0d71a69b2033a5a246eefbed19d95aee712a7639a752e5ad3a2b44c9f331caa
-enc_key: 0ef75d1dd74b81e4d2252e6daa7226da
-auth_key: 5584d32db18ede79fe8071a334ff31eb2ca0249a7845a61965d2ec620a50c59e
+key: 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f
+enc_key: 000102030405060708090a0b0c0d0e0f
+auth_key: 101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f
 nonce: 101112131415161718191a1b
 aad: 4945544620534672616d65205747
 pt: 64726166742d696574662d736672616d652d656e63
-ct: f8551395579efc8dfdda575ed1a048f8b6cbf0e85653f0a514dea191e4
+ct: 6339af04ada1d064688a442b8dc69d5b6bfa40f4be6e93b7da076927bb
 </pre><a href="#appendix-D.2-7" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.2-8">
 <pre>
 cipher_suite: 0x0003
-key: 000102030405060708090a0b0c0d0e0f
-aead_label: 534672616d6520312e3020414553204354522041454144200000000000000004
-aead_secret: ff69640f46d50930ce38bcf5aa5f6417a5bff98a991c79da06a0be460211dd36
-enc_key: 96a673a94981bd85e71fcf05c79f2a01
-auth_key: bbf3b39da1eb8ed31fc5e0b26896a070f1a43e5ad3009b4c9d6c32e77ac68fce
+key: 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f
+enc_key: 000102030405060708090a0b0c0d0e0f
+auth_key: 101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f
 nonce: 101112131415161718191a1b
 aad: 4945544620534672616d65205747
 pt: 64726166742d696574662d736672616d652d656e63
-ct: d6455bdbe7b5e8cdda861a8e90835637c0f7990349ce9052e6
+ct: 6339af04ada1d064688a442b8dc69d5b6bfa40f4be09480509
 </pre><a href="#appendix-D.2-8" class="pilcrow">¶</a>
 </div>
 </section>
@@ -5701,41 +5768,41 @@ ct: d6455bdbe7b5e8cdda861a8e90835637c0f7990349ce9052e6
 <p id="appendix-D.3-1">For each case, we provide:<a href="#appendix-D.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-D.3-2.1">
-            <code>cipher_suite</code>: The index of the cipher suite in use (see
-<a href="#sframe-cipher-suites" class="auto internal xref">Section 8.1</a>)<a href="#appendix-D.3-2.1" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.1.1"><code>cipher_suite</code>: The index of the cipher suite in use (see
+<a href="#sframe-cipher-suites" class="auto internal xref">Section 8.1</a>)<a href="#appendix-D.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.2">
-            <code>kid</code>: A KID value<a href="#appendix-D.3-2.2" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.2.1"><code>kid</code>: A KID value<a href="#appendix-D.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.3">
-            <code>ctr</code>: A CTR value<a href="#appendix-D.3-2.3" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.3.1"><code>ctr</code>: A CTR value<a href="#appendix-D.3-2.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.4">
-            <code>base_key</code>: The <code>base_key</code> input to the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.4" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.4.1"><code>base_key</code>: The <code>base_key</code> input to the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.5">
-            <code>sframe_key_label</code>: The label used to derive <code>sframe_key</code> in the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.5" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.5.1"><code>sframe_key_label</code>: The label used to derive <code>sframe_key</code> in the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.5.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.6">
-            <code>sframe_salt_label</code>: The label used to derive <code>sframe_salt</code> in the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.6" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.6.1"><code>sframe_salt_label</code>: The label used to derive <code>sframe_salt</code> in the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.6.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.7">
-            <code>sframe_secret</code>: The <code>sframe_secret</code> variable in the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.7" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.7.1"><code>sframe_secret</code>: The <code>sframe_secret</code> variable in the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.7.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.8">
-            <code>sframe_key</code>: The <code>sframe_key</code> value produced by the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.8" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.8.1"><code>sframe_key</code>: The <code>sframe_key</code> value produced by the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.8.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.9">
-            <code>sframe_salt</code>: The <code>sframe_salt</code> value produced by the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.9" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.9.1"><code>sframe_salt</code>: The <code>sframe_salt</code> value produced by the <code>derive_key_salt</code> algorithm<a href="#appendix-D.3-2.9.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.10">
-            <code>metadata</code>: The <code>metadata</code> input to the SFrame <code>encrypt</code> algorithm<a href="#appendix-D.3-2.10" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.10.1"><code>metadata</code>: The <code>metadata</code> input to the SFrame <code>encrypt</code> algorithm<a href="#appendix-D.3-2.10.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.11">
-            <code>pt</code>: The plaintext<a href="#appendix-D.3-2.11" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.11.1"><code>pt</code>: The plaintext<a href="#appendix-D.3-2.11.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-2.12">
-            <code>ct</code>: The SFrame ciphertext<a href="#appendix-D.3-2.12" class="pilcrow">¶</a>
+            <p id="appendix-D.3-2.12.1"><code>ct</code>: The SFrame ciphertext<a href="#appendix-D.3-2.12.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="appendix-D.3-3">An implementation should verify that the following are true, where
@@ -5743,10 +5810,10 @@ ct: d6455bdbe7b5e8cdda861a8e90835637c0f7990349ce9052e6
 context initialized with <code>base_key</code> assigned to <code>kid</code>:<a href="#appendix-D.3-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-D.3-4.1">
-            <code>encrypt(ctr, kid, metadata, plaintext) == ct</code><a href="#appendix-D.3-4.1" class="pilcrow">¶</a>
+            <p id="appendix-D.3-4.1.1"><code>encrypt(ctr, kid, metadata, plaintext) == ct</code><a href="#appendix-D.3-4.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="appendix-D.3-4.2">
-            <code>decrypt(metadata, ct) == pt</code><a href="#appendix-D.3-4.2" class="pilcrow">¶</a>
+            <p id="appendix-D.3-4.2.1"><code>decrypt(metadata, ct) == pt</code><a href="#appendix-D.3-4.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="appendix-D.3-5">The other values in the test vector are intermediate values provided to
@@ -5757,16 +5824,16 @@ cipher_suite: 0x0001
 kid: 0x0000000000000123
 ctr: 0x0000000000004567
 base_key: 000102030405060708090a0b0c0d0e0f
-sframe_key_label: 534672616d6520312e3020536563726574206b6579200000000000000123
-sframe_salt_label: 534672616d6520312e30205365637265742073616c74200000000000000123
+sframe_key_label: 534672616d6520312e3020536563726574206b65792000000000000001230001
+sframe_salt_label: 534672616d6520312e30205365637265742073616c742000000000000001230001
 sframe_secret: d926952ca8b7ec4a95941d1ada3a5203ceff8cceee34f574d23909eb314c40c0
-sframe_key: 73bb177a9fe6c02597132fe430ca2d99
-sframe_salt: 55582aa5aaced36a74544d91
+sframe_key: 3f7d9a7c83ae8e1c8a11ae695ab59314b367e359fadac7b9c46b2bc6f81f46e16b96f0811868d59402b7e870102720b3
+sframe_salt: 50b29329a04dc0f184ac3168
 metadata: 4945544620534672616d65205747
-nonce: 55582aa5aaced36a745408f6
-aad: 19012345674945544620534672616d65205747
+nonce: 50b29329a04dc0f184ac740f
+aad: 99012345674945544620534672616d65205747
 pt: 64726166742d696574662d736672616d652d656e63
-ct: 190123456740043f25262c0ca52e9374b070f24b02764715c2e303388c9495324037d043
+ct: 9901234567449408b6f490086165b9d6f62b24ae1a59a56486b4ae8ed036b88912e24f11
 </pre><a href="#appendix-D.3-6" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.3-7">
@@ -5775,16 +5842,16 @@ cipher_suite: 0x0002
 kid: 0x0000000000000123
 ctr: 0x0000000000004567
 base_key: 000102030405060708090a0b0c0d0e0f
-sframe_key_label: 534672616d6520312e3020536563726574206b6579200000000000000123
-sframe_salt_label: 534672616d6520312e30205365637265742073616c74200000000000000123
+sframe_key_label: 534672616d6520312e3020536563726574206b65792000000000000001230002
+sframe_salt_label: 534672616d6520312e30205365637265742073616c742000000000000001230002
 sframe_secret: d926952ca8b7ec4a95941d1ada3a5203ceff8cceee34f574d23909eb314c40c0
-sframe_key: 73bb177a9fe6c02597132fe430ca2d99
-sframe_salt: 55582aa5aaced36a74544d91
+sframe_key: e2ec5c797540310483b16bf6e7a570d2a27d192fe869c7ccd8584a8d9dab91549fbe553f5113461ec6aa83bf3865553e
+sframe_salt: e68ac8dd3d02fbcd368c5577
 metadata: 4945544620534672616d65205747
-nonce: 55582aa5aaced36a745408f6
-aad: 19012345674945544620534672616d65205747
+nonce: e68ac8dd3d02fbcd368c1010
+aad: 99012345674945544620534672616d65205747
 pt: 64726166742d696574662d736672616d652d656e63
-ct: 1901234567729eef4910d734abfd392cdff0f67d2a8d06041eef5f895e4cecc03a6d
+ct: 99012345673f31438db4d09434e43afa0f8a2f00867a2be085046a9f5cb4f101d607
 </pre><a href="#appendix-D.3-7" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.3-8">
@@ -5793,16 +5860,16 @@ cipher_suite: 0x0003
 kid: 0x0000000000000123
 ctr: 0x0000000000004567
 base_key: 000102030405060708090a0b0c0d0e0f
-sframe_key_label: 534672616d6520312e3020536563726574206b6579200000000000000123
-sframe_salt_label: 534672616d6520312e30205365637265742073616c74200000000000000123
+sframe_key_label: 534672616d6520312e3020536563726574206b65792000000000000001230003
+sframe_salt_label: 534672616d6520312e30205365637265742073616c742000000000000001230003
 sframe_secret: d926952ca8b7ec4a95941d1ada3a5203ceff8cceee34f574d23909eb314c40c0
-sframe_key: 73bb177a9fe6c02597132fe430ca2d99
-sframe_salt: 55582aa5aaced36a74544d91
+sframe_key: 2c5703089cbb8c583475e4fc461d97d18809df79b6d550f78eb6d50ffa80d89211d57909934f46f5405e38cd583c69fe
+sframe_salt: 38c16e4f5159700c00c7f350
 metadata: 4945544620534672616d65205747
-nonce: 55582aa5aaced36a745408f6
-aad: 19012345674945544620534672616d65205747
+nonce: 38c16e4f5159700c00c7b637
+aad: 99012345674945544620534672616d65205747
 pt: 64726166742d696574662d736672616d652d656e63
-ct: 190123456717fd0a325fdcd5f0d68089ee5bd17df6296b69b6b0e70c8d73
+ct: 990123456717fc8af28a5a695afcfc6c8df6358a17e26b2fcb3bae32e443
 </pre><a href="#appendix-D.3-8" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.3-9">
@@ -5811,16 +5878,16 @@ cipher_suite: 0x0004
 kid: 0x0000000000000123
 ctr: 0x0000000000004567
 base_key: 000102030405060708090a0b0c0d0e0f
-sframe_key_label: 534672616d6520312e3020536563726574206b6579200000000000000123
-sframe_salt_label: 534672616d6520312e30205365637265742073616c74200000000000000123
+sframe_key_label: 534672616d6520312e3020536563726574206b65792000000000000001230004
+sframe_salt_label: 534672616d6520312e30205365637265742073616c742000000000000001230004
 sframe_secret: d926952ca8b7ec4a95941d1ada3a5203ceff8cceee34f574d23909eb314c40c0
-sframe_key: 73bb177a9fe6c02597132fe430ca2d99
-sframe_salt: 55582aa5aaced36a74544d91
+sframe_key: d34f547f4ca4f9a7447006fe7fcbf768
+sframe_salt: 75234edefe07819026751816
 metadata: 4945544620534672616d65205747
-nonce: 55582aa5aaced36a745408f6
-aad: 19012345674945544620534672616d65205747
+nonce: 75234edefe07819026755d71
+aad: 99012345674945544620534672616d65205747
 pt: 64726166742d696574662d736672616d652d656e63
-ct: 1901234567b8bf87709717f709a35b4e91b2109e5c1ca4f76179415f8bb15d70a9be7eb89c7adb76d300
+ct: 9901234567b7412c2513a1b66dbb48841bbaf17f598751176ad847681a69c6d0b091c07018ce4adb34eb
 </pre><a href="#appendix-D.3-9" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-D.3-10">
@@ -5829,16 +5896,16 @@ cipher_suite: 0x0005
 kid: 0x0000000000000123
 ctr: 0x0000000000004567
 base_key: 000102030405060708090a0b0c0d0e0f
-sframe_key_label: 534672616d6520312e3020536563726574206b6579200000000000000123
-sframe_salt_label: 534672616d6520312e30205365637265742073616c74200000000000000123
+sframe_key_label: 534672616d6520312e3020536563726574206b65792000000000000001230005
+sframe_salt_label: 534672616d6520312e30205365637265742073616c742000000000000001230005
 sframe_secret: 0fc3ea6de6aac97a35f194cf9bed94d4b5230f1cb45a785c9fe5dce9c188938ab6ba005bc4c0a19181599e9d1bcf7b74aca48b60bf5e254e546d809313e083a3
-sframe_key: e9e405efb7cd325030760935bf49fd5669d7c19eb84ca74b419a1487cf835107
-sframe_salt: 11007b537a1cf728a4c544c1
+sframe_key: d3e27b0d4a5ae9e55df01a70e6d4d28d969b246e2936f4b7a5d9b494da6b9633
+sframe_salt: 84991c167b8cd23c93708ec7
 metadata: 4945544620534672616d65205747
-nonce: 11007b537a1cf728a4c501a6
-aad: 19012345674945544620534672616d65205747
+nonce: 84991c167b8cd23c9370cba0
+aad: 99012345674945544620534672616d65205747
 pt: 64726166742d696574662d736672616d652d656e63
-ct: 19012345671e11c62748536fd55fdbc9560daea4825bfecbb05489cd41cb7a1556e001989a4485e8a02f
+ct: 990123456794f509d36e9beacb0e261d99c7d1e972f1fed787d4049f17ca21353c1cc24d56ceabced279
 </pre><a href="#appendix-D.3-10" class="pilcrow">¶</a>
 </div>
 </section>
