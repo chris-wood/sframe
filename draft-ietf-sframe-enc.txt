@@ -5,14 +5,14 @@
 Network Working Group                                           E. Omara
 Internet-Draft                                                     Apple
 Intended status: Standards Track                               J. Uberti
-Expires: 24 April 2024                                            Google
+Expires: 11 May 2024                                              Google
                                                               S. Murillo
                                                           CoSMo Software
                                                        R. L. Barnes, Ed.
                                                                    Cisco
                                                                Y. Fablet
                                                                    Apple
-                                                         22 October 2023
+                                                         8 November 2023
 
 
                          Secure Frame (SFrame)
@@ -63,7 +63,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 April 2024.
+   This Internet-Draft will expire on 11 May 2024.
 
 Copyright Notice
 
@@ -193,8 +193,8 @@ Table of Contents
    conference call media in a broad range of scenarios, as outlined by
    the following goals:
 
-   1.  Provide an secure E2EE mechanism for audio and video in
-       conference calls that can be used with arbitrary SFU servers.
+   1.  Provide a secure E2EE mechanism for audio and video in conference
+       calls that can be used with arbitrary SFU servers.
 
    2.  Decouple media encryption from key management to allow SFrame to
        be used with an arbitrary key management system.
@@ -239,13 +239,12 @@ Table of Contents
    transport-level media payloads (per-packet).
 
    For example, Figure 1 shows a typical media sender stack that takes
-   media in from some source, encodes it into frames, divides those
-   frames into media packets, and then sends those payloads in SRTP
-   packets.  The receiver stack performs the reverse operations,
-   reassembling frames from SRTP packets and decoding.  Arrows indicate
-   two different ways that SFrame protection could be integrated into
-   this media stack, to encrypt whole frames or individual media
-   packets.
+   media from some source, encodes it into frames, divides those frames
+   into media packets, and then sends those payloads in SRTP packets.
+   The receiver stack performs the reverse operations, reassembling
+   frames from SRTP packets and decoding.  Arrows indicate two different
+   ways that SFrame protection could be integrated into this media
+   stack, to encrypt whole frames or individual media packets.
 
    Applying SFrame per-frame in this system offers higher efficiency,
    but may require a more complex integration in environments where
@@ -351,7 +350,7 @@ Alice |            (per-frame)         (per-packet)   |        |        |
 
    Applications MUST ensure that each (KID, CTR) combination is used for
    exactly one encryption operation.  A typical approach to achieving
-   this gaurantee is outlined in Section 9.1.
+   this guarantee is outlined in Section 9.1.
 
       Config Byte
            |
@@ -488,11 +487,15 @@ Alice |            (per-frame)         (per-packet)   |        |        |
      sframe_salt = HKDF-Expand(sframe_secret, info, AEAD.Nn)
      return sframe_key, sframe_salt
 
-   In the derivation of sframe_secret: * The + operator represents
-   concatenation of byte strings. * The KID value is encoded as an
-   8-byte big-endian integer, not the compressed form used in the SFrame
-   header. * The cipher_suite value is a 2-byte big-endian integer
-   representing the cipher suite in use (see Section 8.1).
+   In the derivation of sframe_secret:
+
+   *  The + operator represents concatenation of byte strings.
+
+   *  The KID value is encoded as an 8-byte big-endian integer, not the
+      compressed form used in the SFrame header.
+
+   *  The cipher_suite value is a 2-byte big-endian integer representing
+      the cipher suite in use (see Section 8.1).
 
    The hash function used for HKDF is determined by the cipher suite in
    use.
@@ -1127,9 +1130,9 @@ Alice |            (per-frame)         (per-packet)   |        |        |
    [I-D.ietf-moq-transport]
               Curley, L., Pugin, K., Nandakumar, S., and V. Vasiliev,
               "Media over QUIC Transport", Work in Progress, Internet-
-              Draft, draft-ietf-moq-transport-00, 5 July 2023,
+              Draft, draft-ietf-moq-transport-01, 23 October 2023,
               <https://datatracker.ietf.org/doc/html/draft-ietf-moq-
-              transport-00>.
+              transport-01>.
 
    [I-D.ietf-webtrans-overview]
               Vasiliev, V., "The WebTransport Protocol Framework", Work
